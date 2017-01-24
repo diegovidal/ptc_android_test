@@ -50,13 +50,21 @@ The flow should be splash->search screen->list results-> result detail;
 
 The list item structure should include:
 
-![Screenshot](screenshot.png)
-
-The result detailed screen should include:
+- Title;
+- Poster Image;
+- Rating;
+- Genre;
+- Year;
 
 ![Screenshot](app/src/main/res/drawables/screen_1.jpg)
 
-The result detail should include
+The result detail should include:
+
+- Title;
+- Genre;
+- Large Poster Image;
+- Description;
+- Year;
 
 ![Screenshot](app/src/main/res/drawables/screen_2.jpg)
 
@@ -67,6 +75,7 @@ We value the following usages\implementations:
 - Clear architectural pattern
 - Retrofit/OKHttp client for API communication;
 - Fragments;
+- Swipable Content;
 - Volley;
 
 Test powered:
