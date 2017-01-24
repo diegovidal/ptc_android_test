@@ -50,13 +50,15 @@ The flow should be splash->search screen->list results-> result detail;
 
 The list item structure should include:
 
-
+![Screenshot](screenshot.png)
 
 The result detailed screen should include:
 
-
+![Screenshot](app/src/main/res/drawables/screen_1.jpg)
 
 The result detail should include
+
+![Screenshot](app/src/main/res/drawables/screen_2.jpg)
 
 It has to use the following API - http://netflixroulette.net/api/
 
