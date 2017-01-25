@@ -56,6 +56,7 @@ The list item structure should include:
 - Genre;
 - Year;
 
+*Simillar to*
 ![Screenshot](app/src/main/res/drawables/screen_1.jpg)
 
 The result detail should include:
@@ -66,6 +67,7 @@ The result detail should include:
 - Description;
 - Year;
 
+*Simillar to*
 ![Screenshot](app/src/main/res/drawables/screen_2.jpg)
 
 It has to use the following API - http://netflixroulette.net/api/
@@ -76,6 +78,7 @@ We value the following usages\implementations:
 - Retrofit/OKHttp client for API communication;
 - Fragments;
 - Swipable Content;
+- Material Design Elements
 - Volley;
 
 Test powered by:
