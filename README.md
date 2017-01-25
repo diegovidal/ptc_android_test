@@ -78,8 +78,8 @@ We value the following usages\implementations:
 - Swipable Content;
 - Volley;
 
-Test powered:
+Test powered by:
 
 
-![alt tag](http://netflixroulette.net/img/logo.png)
+![alt tag](http://www.theallstate.org/media/2015/04/flix-roulette.jpg)
 
