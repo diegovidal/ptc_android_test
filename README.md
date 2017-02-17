@@ -57,7 +57,7 @@ The list item structure should include:
 - Year;
 
 *Simillar to*
-![Screenshot](app/src/main/res/drawables/screen_1.jpg)
+![Screenshot](screen_1.jpg)
 
 The result detail should include:
 
@@ -68,7 +68,7 @@ The result detail should include:
 - Year;
 
 *Simillar to*
-![Screenshot](app/src/main/res/drawables/screen_2.jpg)
+![Screenshot](screen_2.jpg)
 
 It has to use the following API - http://netflixroulette.net/api/
 
