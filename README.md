@@ -78,8 +78,10 @@ We value the following usages\implementations:
 - Retrofit/OKHttp client for API communication;
 - Fragments;
 - Swipable Content;
-- Material Design Elements
-- Volley;
+- Material Design Elements;
+- Image Loader (Volley/Picasso/Glide);
+- RxAndroid
+- Animations
 
 Test powered by:
 
