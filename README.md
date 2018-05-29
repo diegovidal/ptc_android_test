@@ -31,10 +31,8 @@ The benefit list includes but is not limited to health insurance, parental bonus
 
 This repo represents the current admission test that is needed to apply for an Android Developer Position.
 
-***************************************************************************************************************
 Android Practical Admission Test
 -
-***************************************************************************************************************
 
 The idea is create an app that is able to list products requested by a query. 
 
@@ -61,6 +59,7 @@ The search must be able to list items from a certain actor or director.
     - Rating;
 
     *Simillar to*
+    ![alt text](screen_1.jpg)
     ![Screenshot](screen_1.jpg)
 
 4. The result detail should include:
@@ -109,6 +108,7 @@ We value the following implementations:
 - Android Architecture Components;
 - Material Design Components;
 - Kotlin;
+- DataBinding
 - Fragments;
 - RxAndroid;
 - Animations;
