@@ -102,6 +102,7 @@ NOTE: The mock only supports these requests.
     
     HTTP 404 - Not Found:
     > http://nd7d1.mocklab.io/search/phone/page/2/
+    
     > http://nd7d1.mocklab.io/product/4/
 
     
