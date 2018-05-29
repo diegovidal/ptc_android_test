@@ -32,59 +32,87 @@ The benefit list includes but is not limited to health insurance, parental bonus
 This repo represents the current admission test that is needed to apply for an Android Developer Position.
 
 ***************************************************************************************************************
-Android Practical Admission Test Level 1
+Android Practical Admission Test
+-
 ***************************************************************************************************************
 
+The idea is create an app that is able to list products requested by a query. 
 
-Please create an app that is able to list movies requested by a query. 
+The application should composed by:
 
-That query can be associated to 
+    - Splash screen
+    - Search screen 
+    - List screen 
+    - Detail screen
 
 The following requirements need to be met:
 
-The application needs to have a splash screen, search screen,a list screen and a result detail screen.
+The search must be able to list items from a certain actor or director.
 
-The search must be able to list items (movies or shows) from a certain actor or director.
+1. The splash screen:
+    - This screen is optional, but the application should request and save some configurations. 
 
-The flow should be splash->search screen->list results-> result detail;
+2. The search screen
 
-The list item structure should include:
+3. The list item structure should include:
+    - Image;
+    - Name and brand;
+    - Price, old price and discount;
+    - Rating;
 
-- Title;
-- Poster Image;
-- Rating;
-- Genre;
-- Year;
+    *Simillar to*
+    ![Screenshot](screen_1.jpg)
 
-*Simillar to*
-![Screenshot](screen_1.jpg)
+4. The result detail should include:
+    - Image or image gallery;
+    - Name and brand;
+    - Price, old price and discount;
+    - Rating;
+    - Description;
 
-The result detail should include:
+    *Simillar to*
+    ![Screenshot](screen_2.jpg)
 
-- Title;
-- Genre;
-- Large Poster Image;
-- Description;
-- Year;
 
-*Simillar to*
-![Screenshot](screen_2.jpg)
+It has to use the following mock API 
+-
+API: http://nd7d1.mocklab.io/
 
-It has to use the following API - http://netflixroulette.net/api/
+NOTE: The mock only supports these requests.
 
-We value the following usages\implementations:
+- Get configurations
 
-- Clear architectural pattern
-- Retrofit/OKHttp client for API communication;
+    > http://nd7d1.mocklab.io/configurations/
+
+- Get list items with pagination
+
+    > http://nd7d1.mocklab.io/search/phone/page/1/
+    
+    > http://nd7d1.mocklab.io/search/phone/page/2/
+
+    Paremeters:
+    - *"phone"* - the query submitted
+    - *"1"* - the page number
+
+- Get detail item
+
+    > http://nd7d1.mocklab.io/product/1/
+
+    > http://nd7d1.mocklab.io/product/2/
+
+    Paremeters:
+    - *"1"* - the product identifier "sku"
+    
+
+We value the following implementations:
+-
+- Android Architecture Components;
+- Material Design Components;
+- Kotlin;
 - Fragments;
+- RxAndroid;
+- Animations;
 - Swipable Content;
-- Material Design Elements;
 - Image Loader (Volley/Picasso/Glide);
-- RxAndroid
-- Animations
-
-Test powered by:
-
-
-![alt tag](http://www.theallstate.org/media/2015/04/flix-roulette.jpg)
+- Retrofit/OKHttp client for API communication;
 
