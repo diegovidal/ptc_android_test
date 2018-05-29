@@ -58,20 +58,12 @@ The search must be able to list items from a certain actor or director.
     - Price, old price and discount;
     - Rating;
 
-    *Simillar to*
-    ![alt text](screen_1.jpg)
-    ![Screenshot](screen_1.jpg)
-
 4. The result detail should include:
     - Image or image gallery;
     - Name and brand;
     - Price, old price and discount;
     - Rating;
     - Description;
-
-    *Simillar to*
-    ![Screenshot](screen_2.jpg)
-
 
 It has to use the following mock API 
 -
@@ -104,7 +96,7 @@ NOTE: The mock only supports these requests.
     
 
 We value the following implementations:
--
+ -
 - Android Architecture Components;
 - Material Design Components;
 - Kotlin;
@@ -116,3 +108,12 @@ We value the following implementations:
 - Image Loader (Volley/Picasso/Glide);
 - Retrofit/OKHttp client for API communication;
 
+Similar screens:
+-
+
+*List of items*
+![Screenshot](screen_1.jpg)
+
+
+*Simillar to*
+![Screenshot](screen_2.jpg)
