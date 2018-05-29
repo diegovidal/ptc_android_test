@@ -94,6 +94,17 @@ NOTE: The mock only supports these requests.
     Paremeters:
     - *"1"* - the product identifier "sku"
     
+    
+- Failure cases
+
+    HTTP 200 - Success false:
+    > http://nd7d1.mocklab.io/product/3/
+    
+    HTTP 404 - Not Found:
+    > http://nd7d1.mocklab.io/search/phone/page/2/
+    > http://nd7d1.mocklab.io/product/4/
+
+    
 
 We value the following implementations:
  -
