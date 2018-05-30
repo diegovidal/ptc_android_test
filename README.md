@@ -66,11 +66,10 @@ The search must be able to list items from a certain actor or director.
     - Rating;
     - Description;
 
-It has to use the following mock API 
+It has to use the following mocklab API 
 -
-API: http://nd7d1.mocklab.io/
 
-NOTE: The mock only supports these requests.
+NOTE: The mocklab API is based in JSON mocks, only supports the following requests.
 
 - Get configurations
 
