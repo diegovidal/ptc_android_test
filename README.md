@@ -1,6 +1,6 @@
 # ptc_android_test
 
-![alt tag](https://www.portotechcenter.pt/wp-content/uploads/2016/07/PTC-jumia-e1468505520464.jpg)
+![alt tag](screen-porto-tech-center.jpg)
 
 Jumia Porto Tech Center (PTC) is an Agile IT development center, with around 200 IT-specialists, 
 where you will have the opportunity to participate in developing smart solutions for our group companies. 
