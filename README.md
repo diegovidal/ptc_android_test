@@ -65,6 +65,11 @@ The search must be able to list items from a certain actor or director.
     - Price, old price and discount;
     - Rating;
     - Description;
+    
+5. The Submission
+    - Create a pull request using the base "development_mocklab" 
+    - Title format "Practical Admission Test - FIRST_NAME LAST_NAME"
+    - Write a description about your implementation
 
 It has to use the following mocklab API 
 -
