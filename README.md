@@ -51,6 +51,7 @@ The search must be able to list items from a certain actor or director.
     - This screen is optional, but the application should request and save some configurations. 
 
 2. The search screen
+    - Allow submit a query
 
 3. The list item structure should include:
     - Image;
@@ -74,6 +75,8 @@ NOTE: The mock only supports these requests.
 - Get configurations
 
     > http://nd7d1.mocklab.io/configurations/
+    
+    The currency should used to format the price and old price.
 
 - Get list items with pagination
 
@@ -82,8 +85,8 @@ NOTE: The mock only supports these requests.
     > http://nd7d1.mocklab.io/search/phone/page/2/
 
     Paremeters:
-    - *"phone"* - the query submitted
-    - *"1"* - the page number
+    - *"phone"* - the query
+    - *"1"* - the page number (pagination)
 
 - Get detail item
 
@@ -123,9 +126,7 @@ We value the following implementations:
 Similar screens:
 -
 
-*List of items*
 ![Screenshot](screen_1.jpg)
 
 
-*Simillar to*
 ![Screenshot](screen_2.jpg)
