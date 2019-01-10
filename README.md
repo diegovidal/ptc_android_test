@@ -56,19 +56,19 @@ The search must be able to list items from a certain actor or director.
 3. The result list page:
     - It's a page that shows the query and respective result, like Google Search.
     - For each result item should be displayed this information:
-    -- Image;
-    -- Name and brand;
-    -- Price, old price and discount;
-    -- Rating;
+        - Image;
+        - Name and brand;
+        - Price, old price and discount;
+        - Rating;
 
 4. The item detail page:
     - It's a page that shows the information about the selected item
     - Should be displayed this information:
-    -- Image or image gallery;
-    -- Name and brand;
-    -- Price, old price and discount;
-    -- Rating;
-    -- Description;
+        - Image or image gallery;
+        - Name and brand;
+        - Price, old price and discount;
+        - Rating;
+        - Description;
     
 5. The Challenge Submission:
     - Create a pull request using the base "development_mocklab" 
@@ -123,7 +123,7 @@ Required tech implementations:
 - Material Design Components;
 - Kotlin;
 - Fragments;
-- DataBinding
+- DataBinding;
 
 
 We value the following implementations:
