@@ -38,40 +38,44 @@ The idea is create an app that is able to list products requested by a query.
 
 The application should composed by:
 
-    - Splash screen
-    - Search screen 
-    - List screen 
-    - Detail screen
+    - Splash screen 
+    - Search page 
+    - Result list page 
+    - Item detail page
 
 The following requirements need to be met:
 
 The search must be able to list items from a certain actor or director.
 
 1. The splash screen:
-    - This screen is optional, but the application should request and save some configurations. 
+    - It's a loading page to request and save some configurations to be used. 
 
-2. The search screen
-    - Allow submit a query
+2. The search page:
+    - It's a page that allow submit a query to get a result, like Google Search.
 
-3. The list item structure should include:
-    - Image;
-    - Name and brand;
-    - Price, old price and discount;
-    - Rating;
+3. The result list page:
+    - It's a page that shows the query and respective result, like Google Search.
+    - For each result item should be displayed this information:
+    -- Image;
+    -- Name and brand;
+    -- Price, old price and discount;
+    -- Rating;
 
-4. The result detail should include:
-    - Image or image gallery;
-    - Name and brand;
-    - Price, old price and discount;
-    - Rating;
-    - Description;
+4. The item detail page:
+    - It's a page that shows the information about the selected item
+    - Should be displayed this information:
+    -- Image or image gallery;
+    -- Name and brand;
+    -- Price, old price and discount;
+    -- Rating;
+    -- Description;
     
-5. The Submission
+5. The Challenge Submission:
     - Create a pull request using the base "development_mocklab" 
-    - Title format "Practical Admission Test - FIRST_NAME LAST_NAME"
+    - Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
     - Write a description about your implementation
 
-It has to use the following mocklab API 
+Use the following mocklab API 
 -
 
 NOTE: The mocklab API is based in JSON mocks, only supports the following requests.
@@ -112,18 +116,20 @@ NOTE: The mocklab API is based in JSON mocks, only supports the following reques
     
     > http://nd7d1.mocklab.io/product/4/
 
-    
 
-We value the following implementations:
- -
+Required tech implementations:
+-
 - Android Architecture Components;
 - Material Design Components;
 - Kotlin;
-- DataBinding
 - Fragments;
-- RxAndroid;
+- DataBinding
+
+
+We value the following implementations:
+-
+- Courotines or RxAndroid;
 - Animations;
-- Swipable Content;
 - Image Loader (Volley/Picasso/Glide);
 - Retrofit/OKHttp client for API communication;
 
