@@ -37,9 +37,9 @@ Android Challenge:
 The idea is create an app that is able to list products requested by a query.
 
 The challenge Submission:
-    - Create a pull request using the base "development_mocklab" 
-    - Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
-    - Write a description about your implementation
+- Create a pull request using the base "development_mocklab" 
+- Title format "Challenge Admission Test - FIRST_NAME LAST_NAME"
+- Write a description about your implementation
 
 Description:
 -
