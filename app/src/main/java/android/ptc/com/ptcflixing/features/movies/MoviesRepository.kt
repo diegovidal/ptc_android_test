@@ -8,7 +8,15 @@ interface MoviesRepository {
 
     fun fetchMovies()
 
-    fun fetchMovieDetails()
+    fun addMovie()
+
+    fun addGenre()
+
+    fun fetchGenres()
+
+    fun fetchMovieDetails(movieId: Long)
+
+    fun addMovieDetails()
 
     fun searchMovies(query: String)
 
