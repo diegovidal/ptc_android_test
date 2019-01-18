@@ -18,7 +18,7 @@ import androidx.room.TypeConverters
 ], version = 1)
 @TypeConverters(
         DateTypeConverter::class,
-        GenreTypeConverter::class
+        GenreNameTypeConverter::class
 )
 abstract class AppDatabase: RoomDatabase() {
 

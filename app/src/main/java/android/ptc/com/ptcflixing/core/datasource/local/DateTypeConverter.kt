@@ -11,17 +11,8 @@ import java.util.*
 class DateTypeConverter {
 
     @TypeConverter
-    fun fromTimestamp(value: String): Date? {
-        return SimpleDateFormat(DATE_FORMATTER, Locale.getDefault()).parse(value)
-    }
+    fun timestampToDate(value: Long?): Date? = if (value == null) null else Date(value)
 
     @TypeConverter
-    fun dateToTimestamp(date: Date?): String? {
-        return SimpleDateFormat(DATE_FORMATTER, Locale.getDefault()).format(date)
-    }
-
-    companion object {
-
-        const val DATE_FORMATTER = "yyyy-MM-dd"
-    }
+    fun dateToTimestamp(date: Date?): Long? = date?.time
 }

@@ -2,6 +2,7 @@ package android.ptc.com.ptcflixing.features.movies.data.local.genres
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 
 /**
  * @author diegovidal on 18/01/19.

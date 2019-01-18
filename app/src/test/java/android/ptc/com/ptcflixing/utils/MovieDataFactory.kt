@@ -11,7 +11,7 @@ import java.util.*
 
 object MovieDataFactory {
 
-    fun makeMovieDto(genres: List<GenreDto>): MovieDto {
+    fun makeMovieDto(genres: List<String>): MovieDto {
 
         return MovieDto(
                 id = DataFactory.randomLong(),
