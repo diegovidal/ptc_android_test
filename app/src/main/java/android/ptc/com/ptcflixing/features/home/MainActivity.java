@@ -1,7 +1,9 @@
-package android.ptc.com.ptcflixing;
+package android.ptc.com.ptcflixing.features.home;
 
-import android.support.v7.app.AppCompatActivity;
+import android.ptc.com.ptcflixing.R;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

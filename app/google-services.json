@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1047870284593",
+    "firebase_url": "https://movieschallenge-2872c.firebaseio.com",
+    "project_id": "movieschallenge-2872c",
+    "storage_bucket": "movieschallenge-2872c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047870284593:android:e66ab8f66a864258",
+        "android_client_info": {
+          "package_name": "dvidal.com.movieschallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047870284593-841he94t1v8d4ehibue430oe30mqphk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATTQsvqwpTPtMSsd3rM2wbeAkcT59OGLg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
