@@ -1,8 +1,6 @@
-package android.ptc.com.ptcflixing.features.movies.data.local
+package android.ptc.com.ptcflixing.features.movies.data.cache
 
-import android.ptc.com.ptcflixing.core.datasource.local.AppDatabase
 import android.ptc.com.ptcflixing.core.functional.Result
-import android.ptc.com.ptcflixing.core.functional.catching
 import android.ptc.com.ptcflixing.features.movies.MoviesRepository
 import android.ptc.com.ptcflixing.features.movies.presentation.GenreView
 import android.ptc.com.ptcflixing.features.movies.presentation.MovieDetailsView
@@ -12,48 +10,53 @@ import javax.inject.Inject
 /**
  * @author diegovidal on 18/01/19.
  */
-class MoviesLocalDataSource @Inject constructor(
-        private val appDatabase: AppDatabase
-)
+class MoviesCacheDataSource @Inject constructor()
     : MoviesRepository {
+
+    private val cachedSearchMovies = mutableListOf<MovieView>()
+    private val cachedMovieDetails = mutableMapOf<Long, MovieDetailsView>()
 
     override fun fetchMovies(): Result<List<MovieView>> {
 
-        return catching { appDatabase.moviesDao().fetchMovies().map { it.mapperToMovieView() } }
+        throw UnsupportedOperationException("fetch movies isn't supported here...")
     }
 
     override fun addMovies(list: List<MovieView>): Result<Unit> {
 
-        return catching {
-            list.forEach { movie -> appDatabase.moviesDao().addMovie(movie.mapperToMovieDto()) }
-        }
+        cachedSearchMovies.clear()
+        cachedSearchMovies.addAll(list)
+
+        return Result.right(Unit)
     }
 
     override fun addGenres(list: List<GenreView>): Result<Unit> {
 
-        return catching {
-            list.forEach { genre -> appDatabase.genresDao().addGenre(genre.mapperToGenreDto()) }
-        }
+        throw UnsupportedOperationException("Add genres isn't supported here...")
     }
 
     override fun fetchGenres(): Result<List<GenreView>> {
 
-        return catching { appDatabase.genresDao().fetchGenres().map { it.mapperToGenreView() } }
+        throw UnsupportedOperationException("fetch genres isn't supported here...")
     }
 
     override fun fetchMovieDetails(movieId: Long): Result<MovieDetailsView?> {
 
-        throw UnsupportedOperationException("Fetch movie details isn't supported here...")
+        if (cachedMovieDetails.containsKey(movieId)){
+            return Result.right(cachedMovieDetails[movieId])
+        }
+
+        return Result.left(Throwable())
     }
 
     override fun addMovieDetails(movieDetailsView: MovieDetailsView): Result<Long> {
 
-        throw UnsupportedOperationException("add movie details isn't supported here...")
+        cachedMovieDetails[movieDetailsView.id] = movieDetailsView
+        return Result.right(movieDetailsView.id)
     }
 
     override fun searchMovies(query: String): Result<List<MovieView>> {
 
-        throw UnsupportedOperationException("search movies isn't supported here...")
+        return Result.right(cachedSearchMovies)
     }
 
     override fun refreshMovies(): Result<List<MovieView>> {

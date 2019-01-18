@@ -1,6 +1,7 @@
 package android.ptc.com.ptcflixing.core.functional
 
-import gizmin.com.br.bitfazpdv.core.functional.Either.Companion.right
+import android.ptc.com.ptcflixing.core.functional.Either.Companion.right
+
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

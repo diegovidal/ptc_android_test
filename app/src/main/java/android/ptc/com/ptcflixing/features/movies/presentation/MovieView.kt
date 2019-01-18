@@ -1,17 +1,13 @@
-package android.ptc.com.ptcflixing.features.movies.data.local.movies
+package android.ptc.com.ptcflixing.features.movies.presentation
 
-import android.ptc.com.ptcflixing.features.movies.presentation.MovieView
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.ptc.com.ptcflixing.features.movies.data.local.movies.MovieDto
 import java.util.*
 
 /**
  * @author diegovidal on 18/01/19.
  */
-
-@Entity
-data class MovieDto(
-        @PrimaryKey val id: Long = 0,
+data class MovieView(
+        val id: Long = 0,
         val title: String = "",
         val overview: String = "",
         val rating: Float = 0.0f,
@@ -21,9 +17,9 @@ data class MovieDto(
         val genres: List<String>?
 ) {
 
-    fun mapperToMovieView(): MovieView {
+    fun mapperToMovieDto(): MovieDto {
 
-        return MovieView(
+        return MovieDto(
                 id = id,
                 title = title,
                 overview = overview,
