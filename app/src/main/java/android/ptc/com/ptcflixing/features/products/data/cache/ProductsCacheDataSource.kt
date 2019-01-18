@@ -2,7 +2,6 @@ package android.ptc.com.ptcflixing.features.products.data.cache
 
 import android.ptc.com.ptcflixing.core.functional.Result
 import android.ptc.com.ptcflixing.features.products.ProductsRepository
-import android.ptc.com.ptcflixing.features.products.data.local.currentpage.CurrentPage
 import android.ptc.com.ptcflixing.features.products.presentation.ProductDetailsView
 import android.ptc.com.ptcflixing.features.products.presentation.ProductView
 import javax.inject.Inject
@@ -30,7 +29,7 @@ class ProductsCacheDataSource @Inject constructor()
         throw UnsupportedOperationException("clear products isn't supported here...")
     }
 
-    override fun fetchCurrentPage(): Result<CurrentPage?> {
+    override fun fetchCurrentPage(): Result<Int> {
 
         throw UnsupportedOperationException("fetch current page isn't supported here...")
     }
@@ -46,10 +45,9 @@ class ProductsCacheDataSource @Inject constructor()
 
     override fun addProductDetails(productDetailsView: ProductDetailsView): Result<Long> {
 
-        cachedProductDetails[productDetailsView.id] = productDetailsView
-        return Result.right(productDetailsView.id)
+        cachedProductDetails[productDetailsView.sku] = productDetailsView
+        return Result.right(productDetailsView.sku)
     }
-
 
     override fun incrementCurrentPage(): Result<Unit> {
 

@@ -24,6 +24,6 @@ class DatabaseModule {
 
     companion object {
 
-        private const val DB_NAME = "movieschallenge_db"
+        private const val DB_NAME = "productschallenge_db"
     }
 }

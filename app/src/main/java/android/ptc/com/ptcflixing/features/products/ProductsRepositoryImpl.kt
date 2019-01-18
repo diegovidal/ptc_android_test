@@ -22,11 +22,15 @@ class ProductsRepositoryImpl: ProductsRepository {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun addGenres(list: List<GenreView>): Result<Unit> {
+    override fun fetchCurrentPage(): Result<Int> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun fetchCurrentPage(): Result<List<GenreView>> {
+    override fun incrementCurrentPage(): Result<Unit> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun refreshProducts(): Result<List<ProductView>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -35,14 +39,6 @@ class ProductsRepositoryImpl: ProductsRepository {
     }
 
     override fun addProductDetails(productDetailsView: ProductDetailsView): Result<Long> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun searchMovies(query: String): Result<List<ProductView>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun refreshMovies(): Result<List<ProductView>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

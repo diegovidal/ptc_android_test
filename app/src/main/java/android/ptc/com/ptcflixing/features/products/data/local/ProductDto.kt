@@ -1,12 +1,16 @@
-package android.ptc.com.ptcflixing.features.products.presentation
+package android.ptc.com.ptcflixing.features.products.data.local
 
-import android.ptc.com.ptcflixing.features.products.data.local.ProductDto
+import android.ptc.com.ptcflixing.features.products.presentation.ProductView
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * @author diegovidal on 18/01/19.
  */
-data class ProductView(
-        val sku: Long = 0,
+
+@Entity
+data class ProductDto(
+        @PrimaryKey val sku: Long = 0,
         val name: String = "",
         val brand: String = "",
         val maxSavingPercentage: Int = 0,
@@ -16,9 +20,9 @@ data class ProductView(
         val rating: Int? = 0
 ) {
 
-    fun mapperToMovieDto(): ProductDto {
+    fun mapperToMovieView(): ProductView {
 
-        return ProductDto(
+        return ProductView(
                 sku = sku,
                 name = name,
                 brand = brand,

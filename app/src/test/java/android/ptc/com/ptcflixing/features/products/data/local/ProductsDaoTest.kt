@@ -1,10 +1,9 @@
-package android.ptc.com.ptcflixing.features.products.data.local.movies
+package android.ptc.com.ptcflixing.features.products.data.local
 
 import android.ptc.com.ptcflixing.core.datasource.local.AppDatabase
-import android.ptc.com.ptcflixing.utils.MovieDataFactory
+import android.ptc.com.ptcflixing.utils.ProductDataFactory
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
-import gizmin.com.br.bitfazpdv.core.util.GenreDataFactory
 import org.junit.After
 import org.junit.Assert
 import org.junit.Rule
@@ -20,7 +19,7 @@ import org.robolectric.annotation.internal.DoNotInstrument
 
 @DoNotInstrument
 @RunWith(RobolectricTestRunner::class)
-class MoviesDaoTest {
+class ProductsDaoTest {
 
     @Rule
     @JvmField var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -37,25 +36,23 @@ class MoviesDaoTest {
     }
 
     @Test
-    fun `should fetch top rated movies and return data`() {
+    fun `should fetch products and return data`() {
 
-        val genres = listOf(GenreDataFactory.makeGenreDto().name, GenreDataFactory.makeGenreDto().name)
-        val movie = MovieDataFactory.makeMovieDto(genres)
-        database.moviesDao().addProduct(movie)
+        val product = ProductDataFactory.makeProductDto()
+        database.productsDao().addProduct(product)
 
-        val testResult = database.moviesDao().fetchProducts()
-        Assert.assertEquals(testResult, listOf(movie))
+        val testResult = database.productsDao().fetchProducts()
+        Assert.assertEquals(testResult, listOf(product))
     }
 
     @Test
-    fun `should clear top rated movies and return empty`() {
+    fun `should clear products and return empty`() {
 
-        val genres = listOf(GenreDataFactory.makeGenreDto().name, GenreDataFactory.makeGenreDto().name)
-        val movie = MovieDataFactory.makeMovieDto(genres)
-        database.moviesDao().addProduct(movie)
-        database.moviesDao().clearProducts()
+        val product = ProductDataFactory.makeProductDto()
+        database.productsDao().addProduct(product)
+        database.productsDao().clearProducts()
 
-        val testResult = database.moviesDao().fetchProducts()
+        val testResult = database.productsDao().fetchProducts()
         Assert.assertEquals(testResult, emptyList<ProductDto>())
     }
 }

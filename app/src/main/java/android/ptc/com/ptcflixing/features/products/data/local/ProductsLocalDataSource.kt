@@ -18,50 +18,43 @@ class ProductsLocalDataSource @Inject constructor(
 
     override fun fetchProducts(): Result<List<ProductView>> {
 
-        return catching { appDatabase.moviesDao().fetchProducts().map { it.mapperToMovieView() } }
+        return catching { appDatabase.productsDao().fetchProducts().map { it.mapperToMovieView() } }
     }
 
     override fun addProducts(list: List<ProductView>): Result<Unit> {
 
         return catching {
-            list.forEach { movie -> appDatabase.moviesDao().addProduct(movie.mapperToMovieDto()) }
+            list.forEach { movie -> appDatabase.productsDao().addProduct(movie.mapperToMovieDto()) }
         }
     }
 
     override fun clearProducts(): Result<Unit> {
 
-        return catching { appDatabase.moviesDao().clearProducts() }
+        return catching { appDatabase.productsDao().clearProducts() }
     }
 
-    override fun addGenres(list: List<GenreView>): Result<Unit> {
+    override fun fetchCurrentPage(): Result<Int> {
 
-        return catching {
-            list.forEach { genre -> appDatabase.genresDao().addGenre(genre.mapperToGenreDto()) }
-        }
+        throw UnsupportedOperationException("Fetch current page isn't supported here...")
     }
 
-    override fun fetchCurrentPage(): Result<List<GenreView>> {
+    override fun incrementCurrentPage(): Result<Unit> {
 
-        return catching { appDatabase.genresDao().fetchCurrentPage().map { it.mapperToGenreView() } }
+        throw UnsupportedOperationException("increment current page isn't supported here...")
+    }
+
+    override fun refreshProducts(): Result<List<ProductView>> {
+
+        throw UnsupportedOperationException("refresh products isn't supported here...")
     }
 
     override fun fetchProductDetails(movieId: Long): Result<ProductDetailsView?> {
 
-        throw UnsupportedOperationException("Fetch movie details isn't supported here...")
+        throw UnsupportedOperationException("Fetch product details isn't supported here...")
     }
 
     override fun addProductDetails(productDetailsView: ProductDetailsView): Result<Long> {
 
-        throw UnsupportedOperationException("add movie details isn't supported here...")
-    }
-
-    override fun searchMovies(query: String): Result<List<ProductView>> {
-
-        throw UnsupportedOperationException("search movies isn't supported here...")
-    }
-
-    override fun refreshMovies(): Result<List<ProductView>> {
-
-        throw UnsupportedOperationException("refresh movies isn't supported here...")
+        throw UnsupportedOperationException("add product details isn't supported here...")
     }
 }

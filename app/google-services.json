@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1047870284593",
-    "firebase_url": "https://movieschallenge-2872c.firebaseio.com",
-    "project_id": "movieschallenge-2872c",
-    "storage_bucket": "movieschallenge-2872c.appspot.com"
+    "project_number": "621939768246",
+    "firebase_url": "https://productschallenge.firebaseio.com",
+    "project_id": "productschallenge",
+    "storage_bucket": "productschallenge.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1047870284593:android:e66ab8f66a864258",
+        "mobilesdk_app_id": "1:621939768246:android:b4f18f0547d040fe",
         "android_client_info": {
-          "package_name": "dvidal.com.movieschallenge"
+          "package_name": "dvidal.com.productschallenge"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1047870284593-841he94t1v8d4ehibue430oe30mqphk2.apps.googleusercontent.com",
+          "client_id": "621939768246-7fuspr00is0gt6qbch9d1kif66gck5uk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyATTQsvqwpTPtMSsd3rM2wbeAkcT59OGLg"
+          "current_key": "AIzaSyBpZv8Yc7AnFn3shfIYq5hlfe6HRyFg670"
         }
       ],
       "services": {

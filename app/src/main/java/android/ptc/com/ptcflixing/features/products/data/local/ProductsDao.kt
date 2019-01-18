@@ -1,4 +1,4 @@
-package android.ptc.com.ptcflixing.features.products.data.local.movies
+package android.ptc.com.ptcflixing.features.products.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -1,7 +1,6 @@
 package android.ptc.com.ptcflixing.features.products
 
 import android.ptc.com.ptcflixing.core.functional.Result
-import android.ptc.com.ptcflixing.features.products.data.local.currentpage.CurrentPage
 import android.ptc.com.ptcflixing.features.products.presentation.ProductDetailsView
 import android.ptc.com.ptcflixing.features.products.presentation.ProductView
 
@@ -17,7 +16,7 @@ interface ProductsRepository {
 
     fun clearProducts(): Result<Unit>
 
-    fun fetchCurrentPage(): Result<CurrentPage?>
+    fun fetchCurrentPage(): Result<Int>
 
     fun incrementCurrentPage(): Result<Unit>
 
