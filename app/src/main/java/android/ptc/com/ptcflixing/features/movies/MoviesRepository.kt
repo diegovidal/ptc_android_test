@@ -5,4 +5,12 @@ package android.ptc.com.ptcflixing.features.movies
  */
 
 interface MoviesRepository {
+
+    fun fetchMovies()
+
+    fun fetchMovieDetails()
+
+    fun searchMovies(query: String)
+
+    fun refreshMovies()
 }
