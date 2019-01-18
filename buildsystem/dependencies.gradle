@@ -53,8 +53,6 @@ ext {
             recyclerView:               "androidx.recyclerview:recyclerview:$recyclerView_version",
 
             materialDesign:             "com.google.android.material:material:$materialDesign_version",
-            firebaseCore:               "com.google.firebase:firebase-core:$firebaseCore_version",
-            firebaseDatabase:           "com.google.firebase:firebase-database:$firebaseDatabase_version",
 
             retrofit:                   "com.squareup.retrofit2:retrofit:$retrofit_version",
             moshi:                      "com.squareup.moshi:moshi-kotlin:$moshi_version",

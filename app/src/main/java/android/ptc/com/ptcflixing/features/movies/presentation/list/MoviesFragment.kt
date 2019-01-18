@@ -19,5 +19,4 @@ class MoviesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_movies, container, false)
     }
 
-
 }
