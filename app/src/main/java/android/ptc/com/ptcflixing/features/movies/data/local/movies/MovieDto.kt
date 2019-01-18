@@ -1,5 +1,6 @@
 package android.ptc.com.ptcflixing.features.movies.data.local.movies
 
+import android.ptc.com.ptcflixing.features.movies.domain.MovieView
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
@@ -18,4 +19,19 @@ data class MovieDto(
         val thumbnail: String = "",
         val poster: String = "",
         val genres: List<String>?
-)
+) {
+
+    fun mapperToMovieView(): MovieView {
+
+        return MovieView(
+                id = id,
+                title = title,
+                overview = overview,
+                rating = rating,
+                year = year,
+                thumbnail = thumbnail,
+                poster = poster,
+                genres = genres
+        )
+    }
+}
