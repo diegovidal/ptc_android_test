@@ -15,6 +15,9 @@ interface GenresDao {
     @Query("SELECT * FROM genredto")
     fun fetchGenres(): List<GenreDto>
 
+    @Query("SELECT * FROM genredto WHERE id = :genreId")
+    fun getGenre(genreId: Long): GenreDto?
+
     @Insert(onConflict = REPLACE)
     fun addGenre(genreDto: GenreDto): Long
 

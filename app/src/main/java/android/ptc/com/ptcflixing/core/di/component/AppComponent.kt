@@ -1,6 +1,7 @@
 package android.ptc.com.ptcflixing.core.di.component
 
 import android.ptc.com.ptcflixing.core.di.DaggerApplication
+import android.ptc.com.ptcflixing.core.di.module.DatabaseModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -11,7 +12,8 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [
-    AndroidSupportInjectionModule::class
+    AndroidSupportInjectionModule::class,
+    DatabaseModule::class
 ])
 internal interface AppComponent: AndroidInjector<DaggerApplication> {
 

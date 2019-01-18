@@ -6,6 +6,7 @@ import android.ptc.com.ptcflixing.features.movies.data.local.movies.MovieDto
 import android.ptc.com.ptcflixing.features.movies.data.local.movies.MoviesDao
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 /**
  * @author diegovidal on 18/01/19.
@@ -15,8 +16,12 @@ import androidx.room.RoomDatabase
     MovieDto::class,
     GenreDto::class
 ], version = 1)
+@TypeConverters(
+        DateTypeConverter::class,
+        GenreTypeConverter::class
+)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun moviesDao(): MoviesDao
-    abstract fun genreDao(): GenresDao
+    abstract fun genresDao(): GenresDao
 }
