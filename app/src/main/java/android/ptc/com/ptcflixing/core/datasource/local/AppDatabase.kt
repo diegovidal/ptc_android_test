@@ -1,9 +1,9 @@
 package android.ptc.com.ptcflixing.core.datasource.local
 
-import android.ptc.com.ptcflixing.features.movies.data.local.genres.GenreDto
-import android.ptc.com.ptcflixing.features.movies.data.local.genres.GenresDao
-import android.ptc.com.ptcflixing.features.movies.data.local.movies.MovieDto
-import android.ptc.com.ptcflixing.features.movies.data.local.movies.MoviesDao
+import android.ptc.com.ptcflixing.features.products.data.local.currentpage.CurrentPage
+import android.ptc.com.ptcflixing.features.products.data.local.currentpage.CurrentPageDao
+import android.ptc.com.ptcflixing.features.products.data.local.movies.ProductDto
+import android.ptc.com.ptcflixing.features.products.data.local.movies.ProductsDao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -13,8 +13,8 @@ import androidx.room.TypeConverters
  */
 
 @Database(entities = [
-    MovieDto::class,
-    GenreDto::class
+    ProductDto::class,
+    CurrentPage::class
 ], version = 1)
 @TypeConverters(
         DateTypeConverter::class,
@@ -22,6 +22,6 @@ import androidx.room.TypeConverters
 )
 abstract class AppDatabase: RoomDatabase() {
 
-    abstract fun moviesDao(): MoviesDao
-    abstract fun genresDao(): GenresDao
+    abstract fun moviesDao(): ProductsDao
+    abstract fun genresDao(): CurrentPageDao
 }

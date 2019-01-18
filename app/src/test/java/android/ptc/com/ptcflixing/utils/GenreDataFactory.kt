@@ -1,15 +1,15 @@
 package gizmin.com.br.bitfazpdv.core.util
 
-import android.ptc.com.ptcflixing.features.movies.data.local.genres.GenreDto
+import android.ptc.com.ptcflixing.features.products.data.local.currentpage.CurrentPage
 
 /**
  * @author diegovidal on 19/12/18.
  */
 object GenreDataFactory {
 
-    fun makeGenreDto(): GenreDto {
+    fun makeGenreDto(): CurrentPage {
 
-        return GenreDto(
+        return CurrentPage(
                 DataFactory.randomLong(), DataFactory.randomString()
         )
     }

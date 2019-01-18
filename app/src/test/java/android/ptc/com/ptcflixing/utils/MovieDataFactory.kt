@@ -1,7 +1,6 @@
 package android.ptc.com.ptcflixing.utils
 
-import android.ptc.com.ptcflixing.features.movies.data.local.genres.GenreDto
-import android.ptc.com.ptcflixing.features.movies.data.local.movies.MovieDto
+import android.ptc.com.ptcflixing.features.products.data.local.movies.ProductDto
 import gizmin.com.br.bitfazpdv.core.util.DataFactory
 import java.util.*
 
@@ -11,9 +10,9 @@ import java.util.*
 
 object MovieDataFactory {
 
-    fun makeMovieDto(genres: List<String>): MovieDto {
+    fun makeMovieDto(genres: List<String>): ProductDto {
 
-        return MovieDto(
+        return ProductDto(
                 id = DataFactory.randomLong(),
                 title = DataFactory.randomString(),
                 overview = DataFactory.randomString(),

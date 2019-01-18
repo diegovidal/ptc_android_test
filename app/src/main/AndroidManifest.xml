@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".features.movies.presentation.details.MovieDetailsActivity"/>
+        <activity android:name=".features.products.presentation.details.ProductDetailsActivity"/>
 
     </application>
 
