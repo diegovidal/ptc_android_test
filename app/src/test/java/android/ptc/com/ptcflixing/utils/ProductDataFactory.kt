@@ -2,7 +2,6 @@ package android.ptc.com.ptcflixing.utils
 
 import android.ptc.com.ptcflixing.features.products.data.local.ProductDto
 import gizmin.com.br.bitfazpdv.core.util.DataFactory
-import java.util.*
 
 /**
  * @author diegovidal on 18/01/19.
