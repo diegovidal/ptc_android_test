@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import dvidal.com.productschallenge.core.platform.BaseViewModel
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -15,7 +16,7 @@ import javax.inject.Singleton
 @Singleton
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory
-@Inject constructor(private val creators: Map<Class<out ViewModel>,
+@Inject constructor(var creators: Map<Class<out ViewModel>,
         @JvmSuppressWildcards Provider<ViewModel>>) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -32,4 +33,5 @@ class ViewModelFactory
 
     inline fun <reified T : ViewModel> get(fragment: Fragment): T? =
             ViewModelProviders.of(fragment, this)[T::class.java]
+
 }

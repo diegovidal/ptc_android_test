@@ -8,13 +8,14 @@ import dvidal.com.productschallenge.core.platform.NetworkHandler
 import dvidal.com.productschallenge.features.products.ProductsRepository
 import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 import dvidal.com.productschallenge.features.products.presentation.ProductView
+import javax.inject.Inject
 
 /**
  * @author diegovidal on 20/01/19.
  */
 
 @Reusable
-class ProductsRemoteDataSource(
+class ProductsRemoteDataSource @Inject constructor(
         private val service: RemoteApi,
         networkHandler: NetworkHandler
 ): BaseRequester(networkHandler), ProductsRepository {

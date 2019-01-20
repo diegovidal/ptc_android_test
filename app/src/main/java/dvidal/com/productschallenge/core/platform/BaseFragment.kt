@@ -21,10 +21,6 @@ abstract class BaseFragment: DaggerFragment() {
         return inflater.inflate(layoutRes(), container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     @LayoutRes
     internal abstract fun layoutRes(): Int
 }

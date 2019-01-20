@@ -4,10 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.multibindings.IntoMap
+import dvidal.com.productschallenge.core.di.module.viewmodel.ViewModelFactory
 import dvidal.com.productschallenge.features.products.presentation.details.ProductDetailsViewModel
 import dvidal.com.productschallenge.features.products.presentation.list.ProductsViewModel
 import dvidal.com.productschallenge.features.splash.presentation.SplashViewModel
+import javax.inject.Singleton
 
 /**
  * @author diegovidal on 17/12/18.
@@ -17,7 +20,7 @@ import dvidal.com.productschallenge.features.splash.presentation.SplashViewModel
 abstract class ViewModelModule {
 
     @Binds
-    internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap

@@ -10,7 +10,6 @@ import javax.inject.Inject
  * @author diegovidal on 20/01/19.
  */
 
-@Reusable
 class FetchConfigUseCase @Inject constructor(
         private val repository: ConfigRepository
 ): UseCase<ConfigView?, UseCase.None>() {

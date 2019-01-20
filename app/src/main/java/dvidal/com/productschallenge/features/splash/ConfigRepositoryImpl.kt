@@ -7,10 +7,13 @@ import dvidal.com.productschallenge.features.splash.data.local.ConfigLocalDataSo
 import dvidal.com.productschallenge.features.splash.data.remote.ConfigRemoteDataSource
 import dvidal.com.productschallenge.features.splash.presentation.ConfigView
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * @author diegovidal on 19/01/19.
  */
+
+@Singleton
 class ConfigRepositoryImpl @Inject constructor(
     private val localDataSource: ConfigLocalDataSource,
     private val remoteDataSource: ConfigRemoteDataSource,

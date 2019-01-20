@@ -9,11 +9,12 @@ import dvidal.com.productschallenge.features.products.data.remote.ProductsRemote
 import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 import dvidal.com.productschallenge.features.products.presentation.ProductView
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * @author diegovidal on 18/01/19.
  */
-
+@Singleton
 class ProductsRepositoryImpl @Inject constructor(
         private val cacheDataSource: ProductsCacheDataSource,
         private val localDataSource: ProductsLocalDataSource,
