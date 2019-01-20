@@ -10,7 +10,7 @@ import javax.inject.Inject
  */
 class AddConfigUseCase @Inject constructor(
         private val repository: ConfigRepository
-): UseCase<Long, ConfigDto>() {
+): UseCase<Long, ConfigDto?>() {
 
-    override suspend fun run(params: ConfigDto) = repository.addConfig(params)
+    override suspend fun run(params: ConfigDto?) = repository.addConfig(params)
 }
