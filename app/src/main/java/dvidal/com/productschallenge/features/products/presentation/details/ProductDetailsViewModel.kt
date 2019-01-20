@@ -19,9 +19,11 @@ class ProductDetailsViewModel @Inject constructor(
 
     val productDetails by lazy { MutableLiveData<ProductDetailsView>() }
     val eventImagesFinished by lazy { MutableLiveEvent<List<String>>() }
+    val eventLoading by lazy { MutableLiveEvent<Boolean>() }
 
     fun loadProductDetails(productId: Long) {
 
+        eventLoading.postEvent(true)
         fetchProductDetailsUseCase.invoke(productId, Dispatchers.IO, job) {
             it.either(::handleFailure, ::handleLoadProductDetails)
         }
@@ -29,7 +31,13 @@ class ProductDetailsViewModel @Inject constructor(
 
     private fun handleLoadProductDetails(productDetailsView: ProductDetailsView?) {
 
+        eventLoading.postEvent(false)
         productDetails.postValue(productDetailsView)
         eventImagesFinished.postEvent(productDetailsView?.images)
+    }
+
+    override fun handleFailure(failure: Throwable) {
+        super.handleFailure(failure)
+        eventLoading.postEvent(false)
     }
 }

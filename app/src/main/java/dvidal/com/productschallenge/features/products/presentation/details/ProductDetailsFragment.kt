@@ -47,6 +47,7 @@ class ProductDetailsFragment : BaseFragment() {
         viewModel?.let {
             observe(it.productDetails, ::renderProductDetails)
             observeEvent(it.eventImagesFinished, ::renderImages)
+            observeEvent(it.eventLoading, ::renderLoading)
             failure(it.failure, ::renderFailure)
         }.also { viewModel?.loadProductDetails(productId) }
     }
@@ -64,9 +65,14 @@ class ProductDetailsFragment : BaseFragment() {
         adapter.updateData(list)
     }
 
+    private fun renderLoading(loading: Boolean) {
+
+        container_pb.visibility = if (loading) View.VISIBLE else View.GONE
+    }
+
     private fun renderFailure(failure: Throwable?) {
 
-//        tv_error?.visibility = View.VISIBLE
+        tv_product_details_error?.visibility = View.VISIBLE
         Timber.e("error is $failure")
     }
 }

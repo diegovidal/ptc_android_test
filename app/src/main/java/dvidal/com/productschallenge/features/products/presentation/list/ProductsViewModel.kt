@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * @author diegovidal on 20/01/19.
  */
-class ProductsViewModel @Inject constructor(
+open class ProductsViewModel @Inject constructor(
         private val fetchProductsUseCase: FetchProductsUseCase,
         private val refreshProductsUseCase: RefreshProductsUseCase
 ): BaseViewModel() {
@@ -44,5 +44,10 @@ class ProductsViewModel @Inject constructor(
 
         eventLoading.postEvent(false)
         products.postValue(list)
+    }
+
+    override fun handleFailure(failure: Throwable) {
+        super.handleFailure(failure)
+        eventLoading.postEvent(false)
     }
 }
