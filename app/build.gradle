@@ -68,7 +68,6 @@ dependencies {
     implementation applicationDependencies.glide
     implementation applicationDependencies.timber
     implementation applicationDependencies.dagger
-    implementation applicationDependencies.daggerSupport
     implementation applicationDependencies.validator
 
     // Compile Time Dependencies

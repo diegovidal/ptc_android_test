@@ -9,7 +9,7 @@ import dvidal.com.productschallenge.features.products.presentation.ProductView
 
 data class RemoteProductResponse(
         val success: Boolean = false,
-        @Json(name = "configMetadata") val data: RemoteProductsFormattedResponse
+        @Json(name = "metadata") val data: RemoteProductsFormattedResponse
 ) {
 
     companion object {
@@ -34,9 +34,9 @@ data class RemoteProduct (
         val brand: String = "",
         @Json(name = "max_saving_percentage") val maxSavingPercentage: Int = 0,
         val price: Double = 0.0,
-        val specialPrice: Double = 0.0,
+        @Json(name = "special_price") val specialPrice: Double = 0.0,
         val image: String = "",
-        val rating: Int? = 0
+        @Json(name = "rating_average") val rating: Int? = 0
 ) {
 
     fun mapperToProductView(): ProductView {

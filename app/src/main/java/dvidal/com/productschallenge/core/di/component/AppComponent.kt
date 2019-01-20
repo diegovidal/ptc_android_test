@@ -1,10 +1,10 @@
 package dvidal.com.productschallenge.core.di.component
 
 import dagger.Component
-import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
-import dvidal.com.productschallenge.core.di.DaggerApplication
-import dvidal.com.productschallenge.core.di.module.*
+import dvidal.com.productschallenge.core.di.module.ApplicationModule
+import dvidal.com.productschallenge.core.di.module.DatabaseModule
+import dvidal.com.productschallenge.core.di.module.RemoteModule
+import dvidal.com.productschallenge.core.di.module.RepositoryModule
 import dvidal.com.productschallenge.core.di.module.viewmodel.ViewModelModule
 import javax.inject.Singleton
 
@@ -13,16 +13,13 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [
-    AndroidSupportInjectionModule::class,
     ApplicationModule::class,
-    ScreenModule::class,
-    ViewModelModule::class,
     DatabaseModule::class,
     RemoteModule::class,
-    RepositoryModule::class
+    RepositoryModule::class,
+    ViewModelModule::class
 ])
-internal interface AppComponent: AndroidInjector<DaggerApplication> {
+interface AppComponent {
 
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<DaggerApplication>()
+    fun activityComponent(): ActivityComponent.Builder
 }

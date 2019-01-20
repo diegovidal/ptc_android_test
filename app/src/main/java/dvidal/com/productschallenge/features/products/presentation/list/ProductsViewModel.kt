@@ -3,6 +3,8 @@ package dvidal.com.productschallenge.features.products.presentation.list
 import androidx.lifecycle.MutableLiveData
 import dvidal.com.productschallenge.core.interactor.UseCase
 import dvidal.com.productschallenge.core.platform.BaseViewModel
+import dvidal.com.productschallenge.core.platform.MutableLiveEvent
+import dvidal.com.productschallenge.core.platform.postEvent
 import dvidal.com.productschallenge.features.products.domain.usecases.FetchProductsUseCase
 import dvidal.com.productschallenge.features.products.domain.usecases.RefreshProductsUseCase
 import dvidal.com.productschallenge.features.products.presentation.ProductView
@@ -17,12 +19,13 @@ class ProductsViewModel @Inject constructor(
         private val refreshProductsUseCase: RefreshProductsUseCase
 ): BaseViewModel() {
 
-    var products = MutableLiveData<List<ProductView>>()
+    val products = MutableLiveData<List<ProductView>>()
+    val eventLoading by lazy { MutableLiveEvent<Boolean>() }
 
     fun loadProducts() {
 
-        val page = 1
-        fetchProductsUseCase.invoke(page, Dispatchers.IO, job) {
+        eventLoading.postEvent(true)
+        fetchProductsUseCase.invoke(1, Dispatchers.IO, job) {
             it.either(::handleFailure, ::handleLoadProducts)
         }
     }
@@ -32,8 +35,13 @@ class ProductsViewModel @Inject constructor(
     }
 
     private fun handleLoadProducts(list: List<ProductView>) {
+
+        eventLoading.postEvent(false)
         products.postValue(list)
     }
 
-    private fun handleRefreshProducts(list: List<ProductView>) {}
+    private fun handleRefreshProducts(list: List<ProductView>) {
+
+        eventLoading.postEvent(false)
+    }
 }

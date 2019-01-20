@@ -3,10 +3,11 @@ package dvidal.com.productschallenge.features.products.presentation.details
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
+import dvidal.com.productschallenge.AndroidApplication
 import dvidal.com.productschallenge.R
+import dvidal.com.productschallenge.core.di.module.viewmodel.ViewModelFactory
 import dvidal.com.productschallenge.core.platform.BaseFragment
-import timber.log.Timber
+import javax.inject.Inject
 
 
 /**
@@ -14,10 +15,17 @@ import timber.log.Timber
  */
 class ProductDetailsFragment : BaseFragment() {
 
+    @Inject lateinit var viewModelFactory: ViewModelFactory
+
     override fun layoutRes() = R.layout.fragment_product_details
 
     private val viewModel by lazy {
-        ViewModelProviders.of(this).get(ProductDetailsViewModel::class.java)
+        viewModelFactory.get<ProductDetailsViewModel>(requireActivity())
+    }
+
+    override fun injectDagger() {
+        (activity?.application as AndroidApplication).appComponent.activityComponent()
+                .build().inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

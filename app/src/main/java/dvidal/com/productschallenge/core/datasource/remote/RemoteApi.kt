@@ -15,9 +15,9 @@ interface RemoteApi {
     @GET("configurations/")
     fun fetchConfig(): Call<RemoteConfigResponse>
 
-    @GET("search/phone/page/{page}")
+    @GET("search/phone/page/{page}/")
     fun fetchProducts(@Path("page") page: Int): Call<RemoteProductResponse>
 
-    @GET("search/phone/page/{sku}")
+    @GET("search/phone/page/{sku}/")
     fun fetchProductDetails(@Path("sku") sku: Long): Call<RemoteProductDetailsResponse>
 }

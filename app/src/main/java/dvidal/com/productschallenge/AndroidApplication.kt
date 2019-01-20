@@ -1,12 +1,22 @@
 package dvidal.com.productschallenge
 
-import dvidal.com.productschallenge.core.di.DaggerApplication
+import android.app.Application
+import dvidal.com.productschallenge.core.di.component.AppComponent
+import dvidal.com.productschallenge.core.di.component.DaggerAppComponent
+import dvidal.com.productschallenge.core.di.module.ApplicationModule
 import timber.log.Timber
 
 /**
  * @author diegovidal on 18/01/19.
  */
-class AndroidApplication: DaggerApplication() {
+class AndroidApplication: Application() {
+
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent
+                .builder()
+                .applicationModule(ApplicationModule(this))
+                .build()
+    }
 
     override fun onCreate() {
         super.onCreate()

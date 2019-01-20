@@ -38,6 +38,13 @@ class GeneralPreferencesManager(
         return nextPage
     }
 
+    fun clearCurrentPage() {
+
+        sharedPreferences.edit()
+                ?.putInt(CURRENT_PAGE, 1)
+                ?.apply()
+    }
+
     fun clear() {
 
         sharedPreferences.edit()

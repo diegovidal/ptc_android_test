@@ -10,6 +10,7 @@ import javax.inject.Inject
  * @author diegovidal on 20/01/19.
  */
 
+@Reusable
 class RefreshProductsUseCase @Inject constructor(
         private val repository: ProductsRepository
 ): UseCase<List<ProductView>, UseCase.None>() {

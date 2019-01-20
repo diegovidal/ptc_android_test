@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import dagger.Module
 import dagger.Provides
-import dagger.android.DaggerApplication
 import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import javax.inject.Singleton
 
@@ -14,13 +13,13 @@ import javax.inject.Singleton
  */
 
 @Module
-class ApplicationModule {
+class ApplicationModule(private val context: Context) {
 
     @Singleton
     @Provides
-    fun provideContext(application: DaggerApplication): Context {
+    fun provideContext(): Context {
 
-        return application.applicationContext
+        return context
     }
 
     @Singleton

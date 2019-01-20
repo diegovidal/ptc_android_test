@@ -26,7 +26,7 @@ class ProductsRepositoryImpl @Inject constructor(
 
         val currentPage = generalPreferencesManager.getCurrentPage()
 
-        return if (localDataSource.fetchProducts(currentPage).rightOrNull() == null) {
+        return if (localDataSource.fetchProducts(currentPage).rightOrNull() == null || localDataSource.fetchProducts(currentPage).rightOrNull()!!.isEmpty()) {
 
             remoteDataSource.fetchProducts(currentPage).apply {
                 localDataSource.addProducts(this.rightOrNull() ?: emptyList())
@@ -49,6 +49,7 @@ class ProductsRepositoryImpl @Inject constructor(
     override fun refreshProducts(): EitherResult<List<ProductView>> {
 
         localDataSource.clearProducts()
+        generalPreferencesManager.clearCurrentPage()
         return fetchProducts(page = FIRST_PAGE)
     }
 
