@@ -13,7 +13,6 @@ import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPre
 import dvidal.com.productschallenge.features.products.presentation.ProductView
 import dvidal.com.productschallenge.features.products.presentation.details.ProductDetailsFragment
 import kotlinx.android.synthetic.main.recycler_item_product.view.*
-import java.util.*
 import javax.inject.Inject
 
 /**
@@ -22,7 +21,7 @@ import javax.inject.Inject
 
 @Reusable
 class ProductsAdapter @Inject constructor(
-        generalPreferencesManager: GeneralPreferencesManager
+        private val generalPreferencesManager: GeneralPreferencesManager
 )
     : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
@@ -83,8 +82,10 @@ class ProductsAdapter @Inject constructor(
             listener?.onProductClicked(product)
         }
 
+        val totalProducts = generalPreferencesManager.getTotalProducts()
+
         val pageOffset = (currentPage * PAGE_OFFSET) - 2
-        if (position >= pageOffset){
+        if (completeData.size < totalProducts && position >= pageOffset){
             listener?.onPagination()
         }
     }
