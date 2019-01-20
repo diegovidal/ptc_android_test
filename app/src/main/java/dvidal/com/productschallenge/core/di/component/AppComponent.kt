@@ -5,6 +5,7 @@ import dvidal.com.productschallenge.core.di.module.DatabaseModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import dvidal.com.productschallenge.core.di.module.RemoteModule
 import javax.inject.Singleton
 
 /**
@@ -13,7 +14,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
-    DatabaseModule::class
+    DatabaseModule::class,
+    RemoteModule::class
 ])
 internal interface AppComponent: AndroidInjector<DaggerApplication> {
 
