@@ -47,7 +47,7 @@ class ProductDetailsFragment : BaseFragment() {
         ci_product_images.setViewPager(vp_product_images)
 
         viewModel?.let {
-            observe(it.productDetails, ::renderProductDetails)
+            observeEvent(it.productDetails, ::renderProductDetails)
             observeEvent(it.eventImagesFinished, ::renderImages)
             observeEvent(it.eventLoading, ::renderLoading)
             failure(it.failure, ::renderFailure)

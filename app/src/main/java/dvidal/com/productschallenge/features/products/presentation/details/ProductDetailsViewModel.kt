@@ -17,7 +17,7 @@ class ProductDetailsViewModel @Inject constructor(
 
 ): BaseViewModel() {
 
-    val productDetails by lazy { MutableLiveData<ProductDetailsView>() }
+    val productDetails by lazy { MutableLiveEvent<ProductDetailsView>() }
     val eventImagesFinished by lazy { MutableLiveEvent<List<String>>() }
     val eventLoading by lazy { MutableLiveEvent<Boolean>() }
 
@@ -32,7 +32,7 @@ class ProductDetailsViewModel @Inject constructor(
     private fun handleLoadProductDetails(productDetailsView: ProductDetailsView?) {
 
         eventLoading.postEvent(false)
-        productDetails.postValue(productDetailsView)
+        productDetails.postEvent(productDetailsView)
         eventImagesFinished.postEvent(productDetailsView?.images)
     }
 

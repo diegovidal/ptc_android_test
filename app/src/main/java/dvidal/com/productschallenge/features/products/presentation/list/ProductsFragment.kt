@@ -47,7 +47,7 @@ class ProductsFragment : BaseFragment(), ProductsAdapter.ProductViewListener {
         configureRecyclerView()
 
         viewModel?.let {
-            observe(it.products, ::renderProducts)
+            observeEvent(it.products, ::renderProducts)
             observeEvent(it.eventLoading, ::renderLoading)
             failure(it.failure, ::renderFailure)
         }.also { viewModel?.loadProducts() }

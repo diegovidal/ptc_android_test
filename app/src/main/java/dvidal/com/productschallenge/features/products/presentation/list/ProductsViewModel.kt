@@ -19,7 +19,7 @@ open class ProductsViewModel @Inject constructor(
         private val refreshProductsUseCase: RefreshProductsUseCase
 ): BaseViewModel() {
 
-    val products = MutableLiveData<List<ProductView>>()
+    val products = MutableLiveEvent<List<ProductView>>()
     val eventLoading by lazy { MutableLiveEvent<Boolean>() }
 
     fun loadProducts() {
@@ -37,13 +37,13 @@ open class ProductsViewModel @Inject constructor(
     private fun handleLoadProducts(list: List<ProductView>) {
 
         eventLoading.postEvent(false)
-        products.postValue(list)
+        products.postEvent(list)
     }
 
     private fun handleRefreshProducts(list: List<ProductView>) {
 
         eventLoading.postEvent(false)
-        products.postValue(list)
+        products.postEvent(list)
     }
 
     override fun handleFailure(failure: Throwable) {
