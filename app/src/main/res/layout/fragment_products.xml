@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.ptc.com.ptcflixing.features.products.presentation.list.ProductsFragment">
+    tools:context="dvidal.com.productschallenge.features.products.presentation.list.ProductsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

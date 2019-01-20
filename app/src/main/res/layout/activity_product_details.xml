@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.ptc.com.ptcflixing.features.products.presentation.details.ProductDetailsActivity">
+    tools:context="dvidal.com.productschallenge.features.products.presentation.details.ProductDetailsActivity">
 
 </androidx.constraintlayout.ConstraintLayout>

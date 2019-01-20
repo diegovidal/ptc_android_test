@@ -18,8 +18,7 @@ android {
         versionName config["version_name"]
         testInstrumentationRunner config["test_runner"]
 
-        buildConfigField "String", "API_ENDPOINT", "\"http://acsefaz.azurewebsites.net/api/\""
-        buildConfigField "String", "API_KEY", "\"D7E2999F-1C91-42C2-8A7C-D2ABBC292DD0\""
+        buildConfigField "String", "API_ENDPOINT", "\"http://nd7d1.mocklab.io\""
     }
 
     buildTypes {
@@ -31,6 +30,12 @@ android {
 
     dataBinding {
         enabled = true
+    }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues true
+        }
     }
 }
 
