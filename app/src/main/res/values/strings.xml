@@ -9,4 +9,6 @@
     <string name="specifications">specifications</string>
     <string name="title_products">Products List</string>
     <string name="title_product_details">ProductDetails</string>
+
+    <string name="price_formatted">%1$s %2$.3f</string>
 </resources>

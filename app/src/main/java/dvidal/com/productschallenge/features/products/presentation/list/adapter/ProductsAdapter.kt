@@ -11,6 +11,7 @@ import dagger.Reusable
 import dvidal.com.productschallenge.R
 import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.features.products.presentation.ProductView
+import dvidal.com.productschallenge.features.products.presentation.details.ProductDetailsFragment
 import kotlinx.android.synthetic.main.recycler_item_product.view.*
 import java.util.*
 import javax.inject.Inject
@@ -31,6 +32,7 @@ class ProductsAdapter @Inject constructor(
     private var currentData: MutableList<ProductView> = mutableListOf()
 
     private var currentPage = generalPreferencesManager.getCurrentPage()
+    private var currencySymbol = generalPreferencesManager.getCurrencySymbol()
 
     fun updateData(list: List<ProductView>) {
 
@@ -110,9 +112,13 @@ class ProductsAdapter @Inject constructor(
 
                 tv_product_brand.text = productView.brand
                 tv_product_name.text = productView.name
-                tv_product_special_price.text = productView.specialPrice.toString()
-                tv_product_price.text = productView.price.toString()
                 rb_product.rating = productView.rating?.toFloat() ?: 0f
+
+                tv_product_price.text = context.getString(R.string.price_formatted, currencySymbol,
+                        productView.price.div(ProductDetailsFragment.DECIMAL_PRICE_FORMATTED)).replace(".", ",")
+                tv_product_special_price.text = context.getString(R.string.price_formatted, currencySymbol,
+                        productView.specialPrice.div(ProductDetailsFragment.DECIMAL_PRICE_FORMATTED)).replace(".", ",")
+
             }
         }
     }
