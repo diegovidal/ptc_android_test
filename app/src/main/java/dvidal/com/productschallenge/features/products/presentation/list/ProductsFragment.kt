@@ -83,4 +83,8 @@ class ProductsFragment : BaseFragment(), ProductsAdapter.ProductViewListener {
     override fun onProductClicked(productView: ProductView) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun onPagination() {
+        viewModel?.loadProducts()
+    }
 }

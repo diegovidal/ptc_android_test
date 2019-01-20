@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import dagger.Reusable
 import dvidal.com.productschallenge.R
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.features.products.presentation.ProductView
 import kotlinx.android.synthetic.main.recycler_item_product.view.*
 import java.util.*
@@ -16,13 +18,19 @@ import javax.inject.Inject
 /**
  * @author diegovidal on 16/06/2018.
  */
-class ProductsAdapter @Inject constructor()
+
+@Reusable
+class ProductsAdapter @Inject constructor(
+        generalPreferencesManager: GeneralPreferencesManager
+)
     : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
     private var listener: ProductViewListener? = null
 
     private var completeData: MutableList<ProductView> = mutableListOf()
     private var currentData: MutableList<ProductView> = mutableListOf()
+
+    private var currentPage = generalPreferencesManager.getCurrentPage()
 
     fun updateData(list: List<ProductView>) {
 
@@ -72,10 +80,16 @@ class ProductsAdapter @Inject constructor()
         holder.itemView.setOnClickListener {
             listener?.onProductClicked(product)
         }
+
+        val pageOffset = (currentPage * PAGE_OFFSET) - 2
+        if (position >= pageOffset){
+            listener?.onPagination()
+        }
     }
 
     fun onDestroy() {
 
+        completeData.clear()
         currentData.clear()
         listener = null
     }
@@ -106,5 +120,11 @@ class ProductsAdapter @Inject constructor()
     interface ProductViewListener {
 
         fun onProductClicked(productView: ProductView)
+        fun onPagination()
+    }
+
+    companion object {
+
+        const val PAGE_OFFSET = 10
     }
 }

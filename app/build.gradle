@@ -57,6 +57,7 @@ dependencies {
     implementation applicationDependencies.constraintLayout
     implementation applicationDependencies.cardView
     implementation applicationDependencies.recyclerView
+    implementation applicationDependencies.paging
 
     // Google Services
     implementation applicationDependencies.materialDesign
@@ -81,7 +82,6 @@ dependencies {
     testImplementation unitTestDependencies.archTesting
     testImplementation unitTestDependencies.mockito
     testImplementation unitTestDependencies.robolectric
-    testImplementation unitTestDependencies.kluent
 
     // Integration Testing
     androidTestImplementation integrationTestDependencies.runner

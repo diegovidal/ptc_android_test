@@ -33,7 +33,8 @@ class ProductsRepositoryImpl @Inject constructor(
             currentPage += 1
             remoteDataSource.fetchProducts(currentPage).apply {
                 localDataSource.addProducts(this.rightOrNull() ?: emptyList())
-                generalPreferencesManager.incrementCurrentPage()
+                if (this.isRight)
+                    generalPreferencesManager.incrementCurrentPage()
             }
 
         } else localDataSource.fetchProducts(currentPage)
