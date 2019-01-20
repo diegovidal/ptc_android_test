@@ -10,7 +10,7 @@ import dvidal.com.productschallenge.features.splash.ConfigView
 class RemoteConfigResponse(
         val success: Boolean,
         val session: Session,
-        val metadata: Metadata
+        @Json(name = "metadata") val data: ConfigMetadata
 ) {
 
     fun mapperToConfigView(): ConfigView {
@@ -19,9 +19,9 @@ class RemoteConfigResponse(
                 id = session.id,
                 expire = session.expire ?: "",
                 token = session.token,
-                currencyIso = metadata.currency.iso,
-                currencySymbol = metadata.currency.currencySymbol,
-                language = metadata.languages[0].name
+                currencyIso = data.currency.iso,
+                currencySymbol = data.currency.currencySymbol,
+                language = data.languages[0].name
         )
     }
 
@@ -30,7 +30,7 @@ class RemoteConfigResponse(
         fun empty(): RemoteConfigResponse {
 
             return RemoteConfigResponse(false, Session(),
-                    Metadata(Currency(), emptyList(), Support()))
+                    ConfigMetadata(Currency(), emptyList(), Support()))
         }
     }
 }
@@ -42,7 +42,7 @@ class Session(
     @Json(name = "YII_CSRF_TOKEN") val token: String = ""
 )
 
-class Metadata(
+class ConfigMetadata(
         val currency: Currency,
         val languages: List<Language>,
         val support: Support

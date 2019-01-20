@@ -15,7 +15,7 @@ class ProductsCacheDataSourceTest {
     @Test(expected = UnsupportedOperationException::class)
     fun `should fetch products and return throwable`() {
 
-        cacheDataSource.fetchProducts()
+        cacheDataSource.fetchProducts(0)
     }
 
     @Test(expected = UnsupportedOperationException::class)

@@ -22,7 +22,7 @@ class ConfigRemoteDataSource @Inject constructor(
         return request(service.fetchConfig(), {it.mapperToConfigView()}, RemoteConfigResponse.empty())
     }
 
-    override fun addConfig(configDto: ConfigDto): EitherResult<Long> {
+    override fun addConfig(configDto: ConfigDto?): EitherResult<Long> {
 
         throw UnsupportedOperationException("add config isn't supported here...")
     }

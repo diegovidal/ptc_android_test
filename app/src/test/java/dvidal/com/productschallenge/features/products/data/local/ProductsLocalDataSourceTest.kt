@@ -42,7 +42,7 @@ class ProductsLocalDataSourceTest {
         val product = ProductDataFactory.makeProductDto().mapperToMovieView()
         localDataSource.addProducts(listOf(product))
 
-        val testResult = localDataSource.fetchProducts().rightOrNull()
+        val testResult = localDataSource.fetchProducts(0).rightOrNull()
         Assert.assertEquals(testResult, listOf(product))
     }
 
@@ -53,7 +53,7 @@ class ProductsLocalDataSourceTest {
         localDataSource.addProducts(mutableListOf(product.mapperToMovieView()))
         localDataSource.clearProducts()
 
-        val testResult = localDataSource.fetchProducts().rightOrNull()
+        val testResult = localDataSource.fetchProducts(0).rightOrNull()
         Assert.assertEquals(testResult, emptyList<ProductDto>())
     }
 

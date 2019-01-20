@@ -18,7 +18,7 @@ class ConfigLocalDataSource @Inject constructor(
         return catching { appDatabase.configDao().fetchConfig()?.mapperToConfigView()  }
     }
 
-    override fun addConfig(configDto: ConfigDto): EitherResult<Long> {
+    override fun addConfig(configDto: ConfigDto?): EitherResult<Long> {
         return catching { appDatabase.configDao().addConfig(configDto) }
     }
 

@@ -10,7 +10,7 @@ interface ConfigRepository {
 
     fun fetchConfig(): EitherResult<ConfigView?>
 
-    fun addConfig(configDto: ConfigDto): EitherResult<Long>
+    fun addConfig(configDto: ConfigDto?): EitherResult<Long>
 
     fun clearConfig(): EitherResult<Unit>
 }

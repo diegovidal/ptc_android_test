@@ -16,7 +16,7 @@ interface ConfigDao {
     fun fetchConfig(): ConfigDto?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addConfig(configDto: ConfigDto): Long
+    fun addConfig(configDto: ConfigDto?): Long
 
     @Query("DELETE FROM configdto")
     fun clearConfig()

@@ -56,4 +56,17 @@ class ConfigViewLocalDataSourceTest {
         val testResult = configLocalDataSource.fetchConfig().rightOrNull()
         Assert.assertEquals(testResult, null)
     }
+
+    @Test
+    fun `should add two configs and return last element`() {
+
+        val config1 = ConfigDataFactory.makeConfigDto()
+        val config2 = ConfigDataFactory.makeConfigDto()
+        config2.id = config1.id
+        configLocalDataSource.addConfig(config1)
+        configLocalDataSource.addConfig(config2)
+
+        val testResult = configLocalDataSource.fetchConfig().rightOrNull()
+        Assert.assertEquals(testResult, config2.mapperToConfigView())
+    }
 }

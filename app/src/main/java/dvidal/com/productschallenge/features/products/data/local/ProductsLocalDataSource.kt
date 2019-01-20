@@ -15,7 +15,7 @@ class ProductsLocalDataSource @Inject constructor(
         private val appDatabase: AppDatabase
 ) : ProductsRepository {
 
-    override fun fetchProducts(): EitherResult<List<ProductView>> {
+    override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
         return catching { appDatabase.productsDao().fetchProducts().map { it.mapperToMovieView() } }
     }
@@ -52,7 +52,7 @@ class ProductsLocalDataSource @Inject constructor(
         throw UnsupportedOperationException("Fetch product details isn't supported here...")
     }
 
-    override fun addProductDetails(productDetailsView: ProductDetailsView): EitherResult<Long> {
+    override fun addProductDetails(productDetailsView: ProductDetailsView?): EitherResult<Long> {
 
         throw UnsupportedOperationException("add product details isn't supported here...")
     }

@@ -10,7 +10,7 @@ import dvidal.com.productschallenge.features.splash.ConfigView
 
 @Entity
 data class ConfigDto(
-        @PrimaryKey val id: String = "",
+        @PrimaryKey var id: String = "",
         val expire: String = "",
         val token: String = "",
         val currencyIso: String = "",

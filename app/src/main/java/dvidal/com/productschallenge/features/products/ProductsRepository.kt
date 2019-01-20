@@ -10,7 +10,7 @@ import dvidal.com.productschallenge.features.products.presentation.ProductView
 
 interface ProductsRepository {
 
-    fun fetchProducts(): EitherResult<List<ProductView>>
+    fun fetchProducts(page: Int): EitherResult<List<ProductView>>
 
     fun addProducts(list: List<ProductView>): EitherResult<Unit>
 
@@ -24,5 +24,5 @@ interface ProductsRepository {
 
     fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?>
 
-    fun addProductDetails(productDetailsView: ProductDetailsView): EitherResult<Long>
+    fun addProductDetails(productDetailsView: ProductDetailsView?): EitherResult<Long>
 }

@@ -9,9 +9,8 @@ data class ProductDetailsView (
         val brand: String = "",
         val description: String = "",
         val maxSavingPercentage: Int = 0,
-        val price: Double = 0.0,
-        val specialPrice: Double = 0.0,
-        val image: String = "",
+        val price: Double? = 0.0,
+        val specialPrice: Double? = 0.0,
         val rating: Int? = 0,
         val images: List<String> = emptyList()
 )

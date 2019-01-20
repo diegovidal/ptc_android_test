@@ -1,12 +1,14 @@
 package dvidal.com.productschallenge.utils
 
-import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 import dvidal.com.productschallenge.core.util.DataFactory
+import dvidal.com.productschallenge.features.products.data.local.ProductDto
+import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 
 /**
- * @author diegovidal on 19/01/19.
+ * @author diegovidal on 18/01/19.
  */
-object ProductDetailsFactory {
+
+object ProductDetailsDataFactory {
 
     fun makeProductDetails(): ProductDetailsView {
 
@@ -19,7 +21,7 @@ object ProductDetailsFactory {
                 price = DataFactory.randomDouble(),
                 specialPrice = DataFactory.randomDouble(),
                 rating = DataFactory.randomInt(),
-                images = listOf(DataFactory.randomString(), DataFactory.randomString(), DataFactory.randomString())
+                images = listOf(DataFactory.randomString(), DataFactory.randomString())
         )
     }
 }

@@ -1,23 +1,25 @@
-package dvidal.com.productschallenge.features.products.data.cache
+package dvidal.com.productschallenge.features.products.data.remote
 
+import dvidal.com.productschallenge.core.datasource.remote.RemoteApi
 import dvidal.com.productschallenge.core.functional.EitherResult
-import dvidal.com.productschallenge.core.functional.catching
+import dvidal.com.productschallenge.core.platform.BaseRequester
+import dvidal.com.productschallenge.core.platform.NetworkHandler
 import dvidal.com.productschallenge.features.products.ProductsRepository
 import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 import dvidal.com.productschallenge.features.products.presentation.ProductView
-import javax.inject.Inject
 
 /**
- * @author diegovidal on 18/01/19.
+ * @author diegovidal on 20/01/19.
  */
-class ProductsCacheDataSource @Inject constructor()
-    : ProductsRepository {
-    
-    private val cachedProductDetails = mutableMapOf<Long, ProductDetailsView>()
+class ProductsRemoteDataSource(
+        private val service: RemoteApi,
+        networkHandler: NetworkHandler
+): BaseRequester(networkHandler), ProductsRepository {
 
     override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
-        throw UnsupportedOperationException("fetch products isn't supported here...")
+        return request( service.fetchProducts(page), {response ->
+            response.data.results.map { it.mapperToProductView() }}, RemoteProductResponse.empty())
     }
 
     override fun addProducts(list: List<ProductView>): EitherResult<Unit> {
@@ -47,23 +49,12 @@ class ProductsCacheDataSource @Inject constructor()
 
     override fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?> {
 
-        if (cachedProductDetails.containsKey(productId)){
-            return catching { cachedProductDetails[productId] }
-        }
-
-        return EitherResult.left(Throwable())
+        return request( service.fetchProductDetails(productId), {it.mapperToProductDetailsView()},
+                RemoteProductDetailsResponse.empty() )
     }
 
     override fun addProductDetails(productDetailsView: ProductDetailsView?): EitherResult<Long> {
 
-        return catching {
-            productDetailsView?.let { cachedProductDetails[productDetailsView.sku] = productDetailsView }
-            productDetailsView?.sku ?: -1
-        }
-    }
-
-    fun containsProductDetails(productId: Long): Boolean {
-
-        return cachedProductDetails.containsKey(productId)
+        throw UnsupportedOperationException("add product details isn't supported here...")
     }
 }
