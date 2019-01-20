@@ -49,5 +49,6 @@ open class ProductsViewModel @Inject constructor(
     override fun handleFailure(failure: Throwable) {
         super.handleFailure(failure)
         eventLoading.postEvent(false)
+
     }
 }
