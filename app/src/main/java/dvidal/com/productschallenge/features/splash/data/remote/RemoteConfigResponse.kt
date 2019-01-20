@@ -1,22 +1,45 @@
 package dvidal.com.productschallenge.features.splash.data.remote
 
 import com.squareup.moshi.Json
+import dvidal.com.productschallenge.features.splash.ConfigView
 
 /**
  * @author diegovidal on 19/01/19.
  */
 
 class RemoteConfigResponse(
-        val success: String,
+        val success: Boolean,
         val session: Session,
         val metadata: Metadata
-)
+) {
+
+    fun mapperToConfigView(): ConfigView {
+
+        return ConfigView(
+                id = session.id,
+                expire = session.expire ?: "",
+                token = session.token,
+                currencyIso = metadata.currency.iso,
+                currencySymbol = metadata.currency.currencySymbol,
+                language = metadata.languages[0].name
+        )
+    }
+
+    companion object {
+
+        fun empty(): RemoteConfigResponse {
+
+            return RemoteConfigResponse(false, Session(),
+                    Metadata(Currency(), emptyList(), Support()))
+        }
+    }
+}
 
 class Session(
         
     val id: String = "",
     val expire: String? = null,
-    @Json(name = "YII_CSRF_TOKEN") val token: String? = ""
+    @Json(name = "YII_CSRF_TOKEN") val token: String = ""
 )
 
 class Metadata(

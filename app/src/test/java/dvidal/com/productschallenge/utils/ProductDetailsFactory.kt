@@ -1,7 +1,7 @@
 package dvidal.com.productschallenge.utils
 
 import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
-import gizmin.com.br.bitfazpdv.core.util.DataFactory
+import dvidal.com.productschallenge.core.util.DataFactory
 
 /**
  * @author diegovidal on 19/01/19.

@@ -8,7 +8,7 @@ import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
  */
 interface ConfigRepository {
 
-    fun fetchConfig(): EitherResult<ConfigDto?>
+    fun fetchConfig(): EitherResult<ConfigView?>
 
     fun addConfig(configDto: ConfigDto): EitherResult<Long>
 

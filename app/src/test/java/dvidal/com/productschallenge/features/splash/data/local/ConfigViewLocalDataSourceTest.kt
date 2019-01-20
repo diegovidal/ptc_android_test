@@ -1,9 +1,9 @@
 package dvidal.com.productschallenge.features.splash.data.local
 
-import dvidal.com.productschallenge.core.datasource.local.AppDatabase
-import dvidal.com.productschallenge.utils.ConfigDataFactory
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
+import dvidal.com.productschallenge.core.datasource.local.AppDatabase
+import dvidal.com.productschallenge.utils.ConfigDataFactory
 import org.junit.After
 import org.junit.Assert
 import org.junit.Rule
@@ -11,14 +11,14 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import org.robolectric.annotation.internal.DoNotInstrument
+
 
 /**
  * @author diegovidal on 19/01/19.
  */
 
 @RunWith(RobolectricTestRunner::class)
-class ConfigDaoTest {
+class ConfigViewLocalDataSourceTest {
 
     @Rule
     @JvmField var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -29,6 +29,8 @@ class ConfigDaoTest {
             .allowMainThreadQueries()
             .build()
 
+    private val configLocalDataSource = ConfigLocalDataSource(database)
+
     @After
     fun closeDb() {
         database.close()
@@ -38,20 +40,20 @@ class ConfigDaoTest {
     fun `should fetch config and return data`() {
 
         val config = ConfigDataFactory.makeConfigDto()
-        database.configDao().addConfig(config)
+        configLocalDataSource.addConfig(config)
 
-        val testResult = database.configDao().fetchConfig()
-        Assert.assertEquals(testResult, config)
+        val testResult = configLocalDataSource.fetchConfig().rightOrNull()
+        Assert.assertEquals(testResult, config.mapperToConfigView())
     }
 
     @Test
     fun `should clear config and return empty`() {
 
         val config = ConfigDataFactory.makeConfigDto()
-        database.configDao().addConfig(config)
-        database.configDao().clearConfig()
+        configLocalDataSource.addConfig(config)
+        configLocalDataSource.clearConfig()
 
-        val testResult = database.configDao().fetchConfig()
+        val testResult = configLocalDataSource.fetchConfig().rightOrNull()
         Assert.assertEquals(testResult, null)
     }
 }

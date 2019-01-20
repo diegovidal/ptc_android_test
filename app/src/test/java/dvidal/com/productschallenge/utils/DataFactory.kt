@@ -1,4 +1,4 @@
-package gizmin.com.br.bitfazpdv.core.util
+package dvidal.com.productschallenge.core.util
 
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom
