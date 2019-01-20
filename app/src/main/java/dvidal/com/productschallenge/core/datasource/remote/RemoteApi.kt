@@ -18,6 +18,6 @@ interface RemoteApi {
     @GET("search/phone/page/{page}/")
     fun fetchProducts(@Path("page") page: Int): Call<RemoteProductResponse>
 
-    @GET("search/phone/page/{sku}/")
+    @GET("product/{sku}/")
     fun fetchProductDetails(@Path("sku") sku: Long): Call<RemoteProductDetailsResponse>
 }

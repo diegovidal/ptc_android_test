@@ -3,6 +3,7 @@ package dvidal.com.productschallenge.features.products.presentation.details
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import dvidal.com.productschallenge.R
 import dvidal.com.productschallenge.core.platform.BaseActivity
 
@@ -12,7 +13,7 @@ import dvidal.com.productschallenge.core.platform.BaseActivity
 
 class ProductDetailsActivity : BaseActivity() {
 
-    var productId = 0
+    var productId: Long = 0
 
     override fun layoutRes() = R.layout.activity_layout
 
@@ -20,13 +21,23 @@ class ProductDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         loadBundleExtras(savedInstanceState)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         addFragment(savedInstanceState, ProductDetailsFragment())
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when(item?.itemId){
+            android.R.id.home -> finish()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun loadBundleExtras(savedInstanceState: Bundle?){
 
         if (intent.hasExtra(EXTRA_PRODUCT_ID)){
-            productId = intent.getIntExtra(EXTRA_PRODUCT_ID, 0)
+            productId = intent.getLongExtra(EXTRA_PRODUCT_ID, 0)
         }
     }
 

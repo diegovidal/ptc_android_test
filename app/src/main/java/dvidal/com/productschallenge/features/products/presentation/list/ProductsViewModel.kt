@@ -1,7 +1,6 @@
 package dvidal.com.productschallenge.features.products.presentation.list
 
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PagedList
 import dvidal.com.productschallenge.core.interactor.UseCase
 import dvidal.com.productschallenge.core.platform.BaseViewModel
 import dvidal.com.productschallenge.core.platform.MutableLiveEvent
@@ -21,7 +20,6 @@ class ProductsViewModel @Inject constructor(
 ): BaseViewModel() {
 
     val products = MutableLiveData<List<ProductView>>()
-
     val eventLoading by lazy { MutableLiveEvent<Boolean>() }
 
     fun loadProducts() {

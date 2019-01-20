@@ -57,7 +57,7 @@ dependencies {
     implementation applicationDependencies.constraintLayout
     implementation applicationDependencies.cardView
     implementation applicationDependencies.recyclerView
-    implementation applicationDependencies.paging
+    implementation applicationDependencies.circleIndicator
 
     // Google Services
     implementation applicationDependencies.materialDesign

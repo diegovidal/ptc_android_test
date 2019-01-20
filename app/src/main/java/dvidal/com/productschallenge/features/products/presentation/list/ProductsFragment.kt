@@ -9,6 +9,7 @@ import dvidal.com.productschallenge.core.di.module.viewmodel.ViewModelFactory
 import dvidal.com.productschallenge.core.extension.failure
 import dvidal.com.productschallenge.core.extension.observe
 import dvidal.com.productschallenge.core.extension.observeEvent
+import dvidal.com.productschallenge.core.navigator.Navigator
 import dvidal.com.productschallenge.core.platform.BaseFragment
 import dvidal.com.productschallenge.features.products.presentation.ProductView
 import dvidal.com.productschallenge.features.products.presentation.list.adapter.ProductsAdapter
@@ -26,6 +27,8 @@ class ProductsFragment : BaseFragment(), ProductsAdapter.ProductViewListener {
 
     @Inject lateinit var viewModelFactory: ViewModelFactory
     @Inject lateinit var adapter: ProductsAdapter
+
+    @Inject lateinit var navigator: Navigator
 
     override fun layoutRes() = R.layout.fragment_products
 
@@ -81,7 +84,8 @@ class ProductsFragment : BaseFragment(), ProductsAdapter.ProductViewListener {
     }
 
     override fun onProductClicked(productView: ProductView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        navigator.showProductDetails(requireActivity(), productView.sku)
     }
 
     override fun onPagination() {

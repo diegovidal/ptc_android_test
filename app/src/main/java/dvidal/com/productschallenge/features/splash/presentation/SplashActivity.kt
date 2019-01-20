@@ -6,7 +6,6 @@ import dvidal.com.productschallenge.AndroidApplication
 import dvidal.com.productschallenge.R
 import dvidal.com.productschallenge.core.di.module.viewmodel.ViewModelFactory
 import dvidal.com.productschallenge.core.extension.failure
-import dvidal.com.productschallenge.core.extension.observe
 import dvidal.com.productschallenge.core.extension.observeEvent
 import dvidal.com.productschallenge.core.navigator.Navigator
 import timber.log.Timber

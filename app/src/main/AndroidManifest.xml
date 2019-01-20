@@ -24,8 +24,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".features.products.presentation.list.ProductsActivity"/>
-        <activity android:name=".features.products.presentation.details.ProductDetailsActivity" />
+        <activity
+            android:name=".features.products.presentation.list.ProductsActivity"
+            android:theme="@style/AppTheme.ProductsActivity"
+            android:label="@string/title_products"/>
+
+        <activity
+            android:name=".features.products.presentation.details.ProductDetailsActivity"
+            android:label="@string/title_product_details"/>
     </application>
 
 </manifest>

@@ -1,13 +1,104 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="dvidal.com.productschallenge.features.products.presentation.details.ProductDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_size_standard"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:background="@android:color/white"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin_size_large">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_product_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"/>
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/ci_product_images"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin_size_standard">
+
+                <TextView
+                    android:id="@+id/tv_product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="R$ 37,990"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_size_h4"
+                    android:layout_marginEnd="@dimen/margin_size_large"/>
+
+                <TextView
+                    android:id="@+id/tv_product_special_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="R$ 53,996"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_h4"
+                    android:layout_marginEnd="@dimen/margin_size_large"/>
+
+            </LinearLayout>
+
+            <RatingBar
+                android:id="@+id/rb_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="0.1"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_marginBottom="@dimen/margin_size_standard"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specifications"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_size_h4"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:layout_marginBottom="@dimen/margin_size_medium"/>
+
+                <TextView
+                    android:id="@+id/tv_product_specification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Long text"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_h5" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

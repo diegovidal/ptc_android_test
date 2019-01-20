@@ -15,7 +15,7 @@ ext {
     cardView_version = "1.0.0"
     recyclerView_version = "1.0.0"
     kotlinCoroutines_version = "1.0.1"
-    paging_version = "1.0.0"
+    circleIndicator_version = "1.2.2@aar"
 
     // Google Services
     materialDesign_version = "1.0.0"
@@ -53,7 +53,7 @@ ext {
             constraintLayout:           "androidx.constraintlayout:constraintlayout:$constraintLayout_version",
             cardView:                   "androidx.cardview:cardview:$cardView_version",
             recyclerView:               "androidx.recyclerview:recyclerview:$recyclerView_version",
-            paging:                     "android.arch.paging:runtime:$paging_version",
+            circleIndicator:            "me.relex:circleindicator:$circleIndicator_version",
 
             materialDesign:             "com.google.android.material:material:$materialDesign_version",
 

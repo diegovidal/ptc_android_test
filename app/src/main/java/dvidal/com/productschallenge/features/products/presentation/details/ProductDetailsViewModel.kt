@@ -2,6 +2,8 @@ package dvidal.com.productschallenge.features.products.presentation.details
 
 import androidx.lifecycle.MutableLiveData
 import dvidal.com.productschallenge.core.platform.BaseViewModel
+import dvidal.com.productschallenge.core.platform.MutableLiveEvent
+import dvidal.com.productschallenge.core.platform.postEvent
 import dvidal.com.productschallenge.features.products.domain.usecases.FetchProductDetailsUseCase
 import dvidal.com.productschallenge.features.products.presentation.ProductDetailsView
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +17,8 @@ class ProductDetailsViewModel @Inject constructor(
 
 ): BaseViewModel() {
 
-    var images = MutableLiveData<List<String>>()
+    val productDetails by lazy { MutableLiveData<ProductDetailsView>() }
+    val eventImagesFinished by lazy { MutableLiveEvent<List<String>>() }
 
     fun loadProductDetails(productId: Long) {
 
@@ -25,6 +28,8 @@ class ProductDetailsViewModel @Inject constructor(
     }
 
     private fun handleLoadProductDetails(productDetailsView: ProductDetailsView?) {
-        images.postValue(productDetailsView?.images)
+
+        productDetails.postValue(productDetailsView)
+        eventImagesFinished.postEvent(productDetailsView?.images)
     }
 }

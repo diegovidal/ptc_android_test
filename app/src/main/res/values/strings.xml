@@ -6,4 +6,7 @@
     <string name="standard_error">Ocorreu um erro ao tentar receber os dados, por gentileza tente novamente mais tarde.</string>
     <string name="hint_search_product">Digite o nome do produto</string>
     <string name="loading_information">Carregando informações..</string>
+    <string name="specifications">specifications</string>
+    <string name="title_products">Products List</string>
+    <string name="title_product_details">ProductDetails</string>
 </resources>
