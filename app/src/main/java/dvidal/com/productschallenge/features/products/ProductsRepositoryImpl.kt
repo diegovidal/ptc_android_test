@@ -51,7 +51,7 @@ class ProductsRepositoryImpl @Inject constructor(
     override fun refreshProducts(): EitherResult<List<ProductView>> {
 
         localDataSource.clearProducts()
-        return fetchProducts(page = 1)
+        return fetchProducts(page = FIRST_PAGE)
     }
 
     override fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?> {
@@ -68,5 +68,10 @@ class ProductsRepositoryImpl @Inject constructor(
     override fun addProductDetails(productDetailsView: ProductDetailsView?): EitherResult<Long> {
 
         return cacheDataSource.addProductDetails(productDetailsView)
+    }
+
+    companion object {
+
+        const val FIRST_PAGE = 1
     }
 }
