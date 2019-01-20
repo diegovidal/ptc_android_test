@@ -14,8 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".features.splash.presentation.SplashActivity"></activity>
-        <activity android:name=".features.home.MainActivity">
+        <activity
+            android:name=".features.splash.presentation.SplashActivity"
+            android:theme="@style/FullscreenTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".features.products.presentation.list.ProductsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package dvidal.com.productschallenge.features.splash
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.splash.data.local.ConfigLocalDataSource
@@ -20,13 +21,15 @@ class ConfigRepositoryTest {
 
     private var localDataSource = mock<ConfigLocalDataSource>()
     private var remoteDataSource = mock<ConfigRemoteDataSource>()
+    private var generalPreferencesManager = mock<GeneralPreferencesManager>()
 
     private val localConfig = catching { ConfigDataFactory.makeConfigDto().mapperToConfigView() }
     private val remoteConfig = catching {  TestUtils.loadJson("mock/fetch_config", RemoteConfigResponse::class.java)?.mapperToConfigView() }
 
     private val repository: ConfigRepository = ConfigRepositoryImpl(
             localDataSource,
-            remoteDataSource
+            remoteDataSource,
+            generalPreferencesManager
     )
 
     @Before

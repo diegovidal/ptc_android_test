@@ -64,18 +64,6 @@ class ProductsLocalDataSourceTest {
     }
 
     @Test(expected = UnsupportedOperationException::class)
-    fun `should fetch current page and return throwable`() {
-
-        localDataSource.fetchCurrentPage()
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
-    fun `should increment current page and return throwable`() {
-
-        localDataSource.incrementCurrentPage()
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
     fun `should fetch product details and return throwable`() {
 
         ProductDetailsFactory.makeProductDetails().also {

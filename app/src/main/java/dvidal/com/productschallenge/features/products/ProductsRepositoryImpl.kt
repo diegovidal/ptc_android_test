@@ -1,5 +1,6 @@
 package dvidal.com.productschallenge.features.products
 
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.products.data.cache.ProductsCacheDataSource
@@ -16,18 +17,22 @@ import javax.inject.Inject
 class ProductsRepositoryImpl @Inject constructor(
         private val cacheDataSource: ProductsCacheDataSource,
         private val localDataSource: ProductsLocalDataSource,
-        private val remoteDataSource: ProductsRemoteDataSource
+        private val remoteDataSource: ProductsRemoteDataSource,
+        private val generalPreferencesManager: GeneralPreferencesManager
 ): ProductsRepository {
 
     override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
-        return if (localDataSource.fetchProducts(page).rightOrNull() == null) {
+        val currentPage = generalPreferencesManager.getCurrentPage()
 
-            remoteDataSource.fetchProducts(page).apply {
+        return if (localDataSource.fetchProducts(currentPage).rightOrNull() == null) {
+
+            remoteDataSource.fetchProducts(currentPage).apply {
                 localDataSource.addProducts(this.rightOrNull() ?: emptyList())
+                generalPreferencesManager.incrementCurrentPage()
             }
 
-        } else localDataSource.fetchProducts(page)
+        } else localDataSource.fetchProducts(currentPage)
     }
 
     override fun addProducts(list: List<ProductView>): EitherResult<Unit> {
@@ -38,14 +43,6 @@ class ProductsRepositoryImpl @Inject constructor(
     override fun clearProducts(): EitherResult<Unit> {
 
         return localDataSource.clearProducts()
-    }
-
-    override fun fetchCurrentPage(): EitherResult<Int> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun incrementCurrentPage(): EitherResult<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun refreshProducts(): EitherResult<List<ProductView>> {

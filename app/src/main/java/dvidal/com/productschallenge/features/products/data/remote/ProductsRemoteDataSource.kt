@@ -1,5 +1,6 @@
 package dvidal.com.productschallenge.features.products.data.remote
 
+import dagger.Reusable
 import dvidal.com.productschallenge.core.datasource.remote.RemoteApi
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.platform.BaseRequester
@@ -11,6 +12,8 @@ import dvidal.com.productschallenge.features.products.presentation.ProductView
 /**
  * @author diegovidal on 20/01/19.
  */
+
+@Reusable
 class ProductsRemoteDataSource(
         private val service: RemoteApi,
         networkHandler: NetworkHandler
@@ -35,16 +38,6 @@ class ProductsRemoteDataSource(
     override fun refreshProducts(): EitherResult<List<ProductView>> {
 
         throw UnsupportedOperationException("refresh products isn't supported here...")
-    }
-
-    override fun fetchCurrentPage(): EitherResult<Int> {
-
-        throw UnsupportedOperationException("fetch current page isn't supported here...")
-    }
-
-    override fun incrementCurrentPage(): EitherResult<Unit> {
-
-        throw UnsupportedOperationException("increment current page isn't supported here...")
     }
 
     override fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?> {

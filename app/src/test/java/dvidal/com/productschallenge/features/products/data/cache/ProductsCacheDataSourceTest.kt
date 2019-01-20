@@ -36,18 +36,6 @@ class ProductsCacheDataSourceTest {
         cacheDataSource.refreshProducts()
     }
 
-    @Test(expected = UnsupportedOperationException::class)
-    fun `should fetch current page and return throwable`() {
-
-        cacheDataSource.fetchCurrentPage()
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
-    fun `should increment current page and return throwable`() {
-
-        cacheDataSource.incrementCurrentPage()
-    }
-
     @Test
     fun `should fetch product details and return data`() {
 

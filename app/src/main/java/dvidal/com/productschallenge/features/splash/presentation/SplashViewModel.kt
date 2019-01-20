@@ -1,5 +1,6 @@
 package dvidal.com.productschallenge.features.splash.presentation
 
+import androidx.lifecycle.MutableLiveData
 import dvidal.com.productschallenge.core.interactor.UseCase
 import dvidal.com.productschallenge.core.platform.BaseViewModel
 import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
@@ -17,6 +18,8 @@ class SplashViewModel @Inject constructor(
         private val addConfigUseCase: AddConfigUseCase
 ): BaseViewModel() {
 
+    var config = MutableLiveData<ConfigView>()
+
     fun loadConfig() = fetchConfigUseCase.invoke(UseCase.None(), Dispatchers.IO, job) {
         it.either(::handleFailure, ::handleLoadConfig)
     }
@@ -27,6 +30,7 @@ class SplashViewModel @Inject constructor(
 
     private fun handleLoadConfig(configView: ConfigView?) {
         saveConfig(configView?.mapperToConfigDto())
+        config.postValue(configView)
     }
 
     private fun handleSaveConfig(configId: Long) {

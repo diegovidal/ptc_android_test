@@ -2,6 +2,7 @@ package dvidal.com.productschallenge.features.products
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.products.data.cache.ProductsCacheDataSource
@@ -26,6 +27,7 @@ class ProductsRepositoryTest {
     private var cacheDataSource = mock<ProductsCacheDataSource>()
     private var localDataSource = mock<ProductsLocalDataSource>()
     private var remoteDataSource = mock<ProductsRemoteDataSource>()
+    private var generalPreferencesManager = mock<GeneralPreferencesManager>()
 
     private val localFetchProducts = catching { listOf(ProductDataFactory.makeProductDto().mapperToMovieView()) }
     private val remoteFetchProducts = catching {  TestUtils.loadJson("mock/fetch_products", RemoteProductResponse::class.java)!!.data.
@@ -38,11 +40,15 @@ class ProductsRepositoryTest {
     private val repository: ProductsRepository = ProductsRepositoryImpl(
             cacheDataSource,
             localDataSource,
-            remoteDataSource
+            remoteDataSource,
+            generalPreferencesManager
     )
 
     @Before
     fun setUp() {
+
+        whenever(generalPreferencesManager.incrementCurrentPage()).thenReturn(-1)
+        whenever(generalPreferencesManager.getCurrentPage()).thenReturn(-1)
     }
 
     @Test

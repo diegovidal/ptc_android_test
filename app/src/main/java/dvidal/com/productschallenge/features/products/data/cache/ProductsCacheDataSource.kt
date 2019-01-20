@@ -1,5 +1,6 @@
 package dvidal.com.productschallenge.features.products.data.cache
 
+import dagger.Reusable
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.products.ProductsRepository
@@ -10,6 +11,8 @@ import javax.inject.Inject
 /**
  * @author diegovidal on 18/01/19.
  */
+
+@Reusable
 class ProductsCacheDataSource @Inject constructor()
     : ProductsRepository {
     
@@ -33,16 +36,6 @@ class ProductsCacheDataSource @Inject constructor()
     override fun refreshProducts(): EitherResult<List<ProductView>> {
 
         throw UnsupportedOperationException("refresh products isn't supported here...")
-    }
-
-    override fun fetchCurrentPage(): EitherResult<Int> {
-
-        throw UnsupportedOperationException("fetch current page isn't supported here...")
-    }
-
-    override fun incrementCurrentPage(): EitherResult<Unit> {
-
-        throw UnsupportedOperationException("increment current page isn't supported here...")
     }
 
     override fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?> {

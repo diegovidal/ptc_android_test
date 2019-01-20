@@ -1,13 +1,15 @@
 package dvidal.com.productschallenge.features.splash.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dvidal.com.productschallenge.R
+import dvidal.com.productschallenge.core.platform.BaseActivity
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
+
+    override fun layoutRes() = R.layout.activity_splash
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+
     }
 }

@@ -1,5 +1,6 @@
 package dvidal.com.productschallenge.features.splash
 
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
 import dvidal.com.productschallenge.features.splash.data.local.ConfigLocalDataSource
@@ -12,7 +13,8 @@ import javax.inject.Inject
  */
 class ConfigRepositoryImpl @Inject constructor(
     private val localDataSource: ConfigLocalDataSource,
-    private val remoteDataSource: ConfigRemoteDataSource
+    private val remoteDataSource: ConfigRemoteDataSource,
+    private val generalPreferencesManager: GeneralPreferencesManager
 ): ConfigRepository {
 
     override fun fetchConfig(): EitherResult<ConfigView?> {
@@ -21,6 +23,7 @@ class ConfigRepositoryImpl @Inject constructor(
 
             remoteDataSource.fetchConfig().apply {
                 localDataSource.addConfig(this.rightOrNull()?.mapperToConfigDto())
+                generalPreferencesManager.saveCurrencySymbol(this.rightOrNull()?.currencySymbol ?: "")
             }
 
         } else localDataSource.fetchConfig()

@@ -18,10 +18,6 @@ interface ProductsRepository {
 
     fun refreshProducts(): EitherResult<List<ProductView>>
 
-    fun fetchCurrentPage(): EitherResult<Int>
-
-    fun incrementCurrentPage(): EitherResult<Unit>
-
     fun fetchProductDetails(productId: Long): EitherResult<ProductDetailsView?>
 
     fun addProductDetails(productDetailsView: ProductDetailsView?): EitherResult<Long>
