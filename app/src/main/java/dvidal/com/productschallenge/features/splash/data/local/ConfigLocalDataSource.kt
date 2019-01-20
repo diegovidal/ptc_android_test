@@ -4,7 +4,7 @@ import dvidal.com.productschallenge.core.datasource.local.AppDatabase
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.splash.ConfigRepository
-import dvidal.com.productschallenge.features.splash.ConfigView
+import dvidal.com.productschallenge.features.splash.presentation.ConfigView
 import javax.inject.Inject
 
 /**

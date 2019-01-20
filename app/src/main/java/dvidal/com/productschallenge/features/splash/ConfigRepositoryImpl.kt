@@ -1,10 +1,10 @@
 package dvidal.com.productschallenge.features.splash
 
 import dvidal.com.productschallenge.core.functional.EitherResult
-import dvidal.com.productschallenge.core.functional.catching
 import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
 import dvidal.com.productschallenge.features.splash.data.local.ConfigLocalDataSource
 import dvidal.com.productschallenge.features.splash.data.remote.ConfigRemoteDataSource
+import dvidal.com.productschallenge.features.splash.presentation.ConfigView
 import javax.inject.Inject
 
 /**

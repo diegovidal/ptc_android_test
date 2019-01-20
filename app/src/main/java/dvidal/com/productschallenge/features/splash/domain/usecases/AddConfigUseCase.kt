@@ -2,16 +2,15 @@ package dvidal.com.productschallenge.features.splash.domain.usecases
 
 import dvidal.com.productschallenge.core.interactor.UseCase
 import dvidal.com.productschallenge.features.splash.ConfigRepository
-import dvidal.com.productschallenge.features.splash.presentation.ConfigView
+import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
 import javax.inject.Inject
 
 /**
  * @author diegovidal on 20/01/19.
  */
-class FetchConfigUseCase @Inject constructor(
+class AddConfigUseCase @Inject constructor(
         private val repository: ConfigRepository
-): UseCase<ConfigView?, UseCase.None>() {
+): UseCase<Long, ConfigDto>() {
 
-
-    override suspend fun run(params: None) = repository.fetchConfig()
+    override suspend fun run(params: ConfigDto) = repository.addConfig(params)
 }

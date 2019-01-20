@@ -1,7 +1,7 @@
 package dvidal.com.productschallenge.features.splash.data.remote
 
 import com.squareup.moshi.Json
-import dvidal.com.productschallenge.features.splash.ConfigView
+import dvidal.com.productschallenge.features.splash.presentation.ConfigView
 
 /**
  * @author diegovidal on 19/01/19.

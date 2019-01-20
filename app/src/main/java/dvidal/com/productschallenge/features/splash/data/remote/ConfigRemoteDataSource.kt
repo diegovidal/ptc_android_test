@@ -4,7 +4,7 @@ import dvidal.com.productschallenge.core.datasource.remote.RemoteApi
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.platform.BaseRequester
 import dvidal.com.productschallenge.core.platform.NetworkHandler
-import dvidal.com.productschallenge.features.splash.ConfigView
+import dvidal.com.productschallenge.features.splash.presentation.ConfigView
 import dvidal.com.productschallenge.features.splash.ConfigRepository
 import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
 import javax.inject.Inject

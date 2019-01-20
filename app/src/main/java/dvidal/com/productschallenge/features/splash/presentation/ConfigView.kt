@@ -1,4 +1,4 @@
-package dvidal.com.productschallenge.features.splash
+package dvidal.com.productschallenge.features.splash.presentation
 
 import dvidal.com.productschallenge.features.splash.data.local.ConfigDto
 
