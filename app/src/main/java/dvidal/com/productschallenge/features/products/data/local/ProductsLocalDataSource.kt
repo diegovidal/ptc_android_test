@@ -20,7 +20,7 @@ class ProductsLocalDataSource @Inject constructor(
 
     override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
-        return catching { appDatabase.productsDao().fetchProducts().map { it.mapperToMovieView() } }
+        return catching { appDatabase.productsDao().fetchProducts().map { it.mapperToMovieView() }.sortedBy { it.sku } }
     }
 
     override fun addProducts(list: List<ProductView>): EitherResult<Unit> {

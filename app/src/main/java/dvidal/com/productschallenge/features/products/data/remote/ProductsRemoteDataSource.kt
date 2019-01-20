@@ -2,6 +2,7 @@ package dvidal.com.productschallenge.features.products.data.remote
 
 import dagger.Reusable
 import dvidal.com.productschallenge.core.datasource.remote.RemoteApi
+import dvidal.com.productschallenge.core.datasource.sharedpreferences.GeneralPreferencesManager
 import dvidal.com.productschallenge.core.functional.EitherResult
 import dvidal.com.productschallenge.core.platform.BaseRequester
 import dvidal.com.productschallenge.core.platform.NetworkHandler
@@ -17,13 +18,16 @@ import javax.inject.Inject
 @Reusable
 class ProductsRemoteDataSource @Inject constructor(
         private val service: RemoteApi,
+        private val generalPreferencesManager: GeneralPreferencesManager,
         networkHandler: NetworkHandler
 ): BaseRequester(networkHandler), ProductsRepository {
 
     override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
         return request( service.fetchProducts(page), {response ->
-            response.data.results.map { it.mapperToProductView() }}, RemoteProductResponse.empty())
+
+            generalPreferencesManager.saveTotalProducts(response.data.totalProducts)
+            response.data.results.map { it.mapperToProductView() }.sortedBy { it.sku }}, RemoteProductResponse.empty())
     }
 
     override fun addProducts(list: List<ProductView>): EitherResult<Unit> {

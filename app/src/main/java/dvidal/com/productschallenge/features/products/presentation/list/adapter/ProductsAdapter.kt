@@ -21,14 +21,32 @@ class ProductsAdapter @Inject constructor()
 
     private var listener: ProductViewListener? = null
 
-    var data = ArrayList<ProductView>()
-        set(value) {
+    private var completeData: MutableList<ProductView> = mutableListOf()
+    private var currentData: MutableList<ProductView> = mutableListOf()
 
-            val diffResult = DiffUtil.calculateDiff(ProductsDiffCallback(data, value))
-            data.clear()
-            data.addAll(value)
-            diffResult.dispatchUpdatesTo(this)
+    fun updateData(list: List<ProductView>) {
+
+        val diffResultComplete = DiffUtil.calculateDiff(ProductsDiffCallback(completeData, list))
+        val diffResultCurrent = DiffUtil.calculateDiff(ProductsDiffCallback(currentData, list))
+        diffResultComplete.dispatchUpdatesTo(this)
+        diffResultCurrent.dispatchUpdatesTo(this)
+
+        completeData.clear()
+        currentData.clear()
+        completeData.addAll(list)
+        currentData.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun searchFor(text: String) {
+
+        currentData.clear()
+        currentData.addAll(completeData.filter {
+            it.name.contains(text, true) || it.brand.contains(text, true) || text.isEmpty()
+        }).also {
+            notifyDataSetChanged()
         }
+    }
 
     fun configureListener(l: ProductViewListener) {
         listener = l
@@ -43,12 +61,12 @@ class ProductsAdapter @Inject constructor()
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return currentData.size
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
 
-        val product = data[position]
+        val product = currentData[position]
         holder.bind(product)
 
         holder.itemView.setOnClickListener {
@@ -58,7 +76,7 @@ class ProductsAdapter @Inject constructor()
 
     fun onDestroy() {
 
-        data.clear()
+        currentData.clear()
         listener = null
     }
 

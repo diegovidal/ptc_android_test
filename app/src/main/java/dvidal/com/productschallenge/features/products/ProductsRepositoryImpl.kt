@@ -24,10 +24,13 @@ class ProductsRepositoryImpl @Inject constructor(
 
     override fun fetchProducts(page: Int): EitherResult<List<ProductView>> {
 
-        val currentPage = generalPreferencesManager.getCurrentPage()
+        var currentPage = generalPreferencesManager.getCurrentPage()
+        val localResult = localDataSource.fetchProducts(currentPage).rightOrNull()
+        val totalProducts = generalPreferencesManager.getTotalProducts()
 
-        return if (localDataSource.fetchProducts(currentPage).rightOrNull() == null || localDataSource.fetchProducts(currentPage).rightOrNull()!!.isEmpty()) {
+        return if (localResult == null || localResult.isEmpty() || localResult.size < totalProducts) {
 
+            currentPage += 1
             remoteDataSource.fetchProducts(currentPage).apply {
                 localDataSource.addProducts(this.rightOrNull() ?: emptyList())
                 generalPreferencesManager.incrementCurrentPage()
@@ -71,6 +74,6 @@ class ProductsRepositoryImpl @Inject constructor(
 
     companion object {
 
-        const val FIRST_PAGE = 1
+        const val FIRST_PAGE = 0
     }
 }

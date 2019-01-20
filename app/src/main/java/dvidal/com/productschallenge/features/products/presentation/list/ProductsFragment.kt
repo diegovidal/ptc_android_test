@@ -61,7 +61,12 @@ class ProductsFragment : BaseFragment(), ProductsAdapter.ProductViewListener {
 
     private fun renderProducts(list: List<ProductView>) {
 
-        adapter.data = ArrayList(list)
+        adapter.updateData(list)
+    }
+
+    fun searchFor(text: String) {
+
+        adapter.searchFor(text)
     }
 
     private fun renderLoading(loading: Boolean) {
